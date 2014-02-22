@@ -56,11 +56,11 @@ for creating expressions:
 (simplify (ex (+ (* 4 a) (* 3 a) (* -1 (* 7 a))))) 
 => 0
 
-(def F1 (ex (= Y (+ X Z)))
-(def F2 (ex (= X [1 2 3]))
-(def F3 (ex (= Z (* 2.0 X)))
+(def F1 (ex (= Y (+ X Z))))
+(def F2 (ex (= X [1 2 3])))
+(def F3 (ex (= Z (* 2.0 X))))
 
-(solve [Y] F1 F2 F3)
+(solve 'Y F1 F2 F3)
 => #{[3.0 6.0 9.0]}        
 
 (def opt (optimize (ex (+ b (* (+ 5 b) (** y (+ a b)) (** z (+ b a)))))))
