@@ -1,0 +1,2493 @@
+Mutant 1:
+Interprocedural Operator. Value Replacement
+------------------------------------
+Diff Result for Mutant 1
+*** /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.original.clj	2014-02-22 13:28:45.000000000 -0800
+--- /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.rmb6.1.clj	2014-02-22 14:40:42.000000000 -0800
+***************
+*** 98,104 ****
+    [v poly]
+    (let [a (to-expression (to-sexp (coef poly 2)))
+          b (to-expression (to-sexp (coef poly 1)))
+!         c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+--- 98,104 ----
+    [v poly]
+    (let [a (to-expression (to-sexp (coef poly 2)))
+          b (to-expression (to-sexp (coef poly 1)))
+!         c (to-expression (to-sexp (coef poly 1)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+------------------------------------
+Test Results for Mutant 1
+FAIL in (test-solve) (test_core.clj:146)
+expected: (= (quote #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))}) (solve (quote #{x}) (ex (= (+ (** x 2) (* a x) 1) 0))))
+  actual: (not (= #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))} #{(* 1/2 (+ (- a) (sqrt (+ (** a 2) (* -4 a))))) (* 1/2 (+ (- a) (- (sqrt (+ (** a 2) (* -4 a))))))}))
+--
+FAIL in (test-solve) (test_core.clj:149)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve (quote [x y]) (ex (= (+ (** x 2) (** y 2)) 1)) (ex (= (+ x y) a))))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (sqrt (+ (* 4.0 (** a 2)) (* 16 a))))), x (+ (* 1/2 a) (* (sqrt (+ (* 4.0 (** a 2)) (* 16 a))) 1/4))} {y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* 4.0 (** a 2)) (* 16 a)))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* 4.0 (** a 2)) (* 16 a)))) 1/4))}}))
+--
+FAIL in (test-solve) (test_core.clj:155)
+expected: (= (quote #{0 -1 1}) (solve (quote x) (ex (= (- (** x 4) (** x 2)) 0))))
+  actual: (not (= #{0 -1 1} #{0}))
+--
+FAIL in (test-solve) (test_core.clj:157)
+expected: (= (quote #{1 3}) (solve (quote x) (ex (= (+ (** 2 (* 2 x)) (- (* 5 (** 2 (+ x 1)))) 16) 0))))
+  actual: (not (= #{1 3} #{3.4483829389745972}))
+--
+FAIL in (test-solve-log) (test_solve.clj:111)
+expected: (= #{6} (solve (quote x) (ex (= (+ (log (- x 2)) (log (- (* 2 x) 3))) (* 2 (log x))))))
+  actual: (not (= #{6} #{}))
+--
+FAIL in (test-solve-log) (test_solve.clj:114)
+expected: (= #{16.168643024342963 -10.168643024342964} (solve (quote x) (ex (= (log (- (** x 2) (* 6 x) 16)) 5))))
+  actual: (not (= #{16.168643024342963 -10.168643024342964} #{6.872983346207417 -0.872983346207417}))
+^C^C^C
+
+====================================
+Mutant 2:
+Interprocedural Operator. Value Replacement
+------------------------------------
+Diff Result for Mutant 2
+^C
+d209-087-60-216:rmb6 ronald$
+d209-087-60-216:rmb6 ronald$
+d209-087-60-216:rmb6 ronald$
+d209-087-60-216:rmb6 ronald$
+d209-087-60-216:rmb6 ronald$
+d209-087-60-216:rmb6 ronald$
+d209-087-60-216:rmb6 ronald$
+d209-087-60-216:rmb6 ronald$
+d209-087-60-216:rmb6 ronald$
+d209-087-60-216:rmb6 ronald$ ./rmb6.sh
+====================================
+Mutant 1:
+Interprocedural Operator. Value Replacement
+------------------------------------
+Diff Result for Mutant 1:
+------------------------------------
+*** /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.original.clj	2014-02-22 13:28:45.000000000 -0800
+--- /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.rmb6.1.clj	2014-02-22 14:40:42.000000000 -0800
+***************
+*** 98,104 ****
+    [v poly]
+    (let [a (to-expression (to-sexp (coef poly 2)))
+          b (to-expression (to-sexp (coef poly 1)))
+!         c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+--- 98,104 ----
+    [v poly]
+    (let [a (to-expression (to-sexp (coef poly 2)))
+          b (to-expression (to-sexp (coef poly 1)))
+!         c (to-expression (to-sexp (coef poly 1)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+------------------------------------
+Test Results for Mutant 1:
+------------------------------------
+FAIL in (test-solve) (test_core.clj:146)
+expected: (= (quote #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))}) (solve (quote #{x}) (ex (= (+ (** x 2) (* a x) 1) 0))))
+  actual: (not (= #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))} #{(* 1/2 (+ (- a) (sqrt (+ (** a 2) (* -4 a))))) (* 1/2 (+ (- a) (- (sqrt (+ (** a 2) (* -4 a))))))}))
+--
+FAIL in (test-solve) (test_core.clj:149)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve (quote [x y]) (ex (= (+ (** x 2) (** y 2)) 1)) (ex (= (+ x y) a))))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (sqrt (+ (* 4.0 (** a 2)) (* 16 a))))), x (+ (* 1/2 a) (* (sqrt (+ (* 4.0 (** a 2)) (* 16 a))) 1/4))} {y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* 4.0 (** a 2)) (* 16 a)))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* 4.0 (** a 2)) (* 16 a)))) 1/4))}}))
+--
+FAIL in (test-solve) (test_core.clj:155)
+expected: (= (quote #{0 -1 1}) (solve (quote x) (ex (= (- (** x 4) (** x 2)) 0))))
+  actual: (not (= #{0 -1 1} #{0}))
+^C^C
+
+====================================
+Mutant 2:
+Interprocedural Operator. Value Replacement
+------------------------------------
+Diff Result for Mutant 2:
+------------------------------------
+*** /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.original.clj	2014-02-22 13:28:45.000000000 -0800
+--- /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.rmb6.2.clj	2014-02-22 14:40:50.000000000 -0800
+***************
+*** 98,104 ****
+    [v poly]
+    (let [a (to-expression (to-sexp (coef poly 2)))
+          b (to-expression (to-sexp (coef poly 1)))
+!         c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+--- 98,104 ----
+    [v poly]
+    (let [a (to-expression (to-sexp (coef poly 2)))
+          b (to-expression (to-sexp (coef poly 1)))
+!         c (to-expression (to-sexp (coef poly 2)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+------------------------------------
+Test Results for Mutant 2:
+------------------------------------
+^C
+d209-087-60-216:rmb6 ronald$
+d209-087-60-216:rmb6 ronald$
+d209-087-60-216:rmb6 ronald$
+d209-087-60-216:rmb6 ronald$
+d209-087-60-216:rmb6 ronald$
+d209-087-60-216:rmb6 ronald$
+d209-087-60-216:rmb6 ronald$
+d209-087-60-216:rmb6 ronald$
+d209-087-60-216:rmb6 ronald$
+d209-087-60-216:rmb6 ronald$
+d209-087-60-216:rmb6 ronald$
+d209-087-60-216:rmb6 ronald$
+d209-087-60-216:rmb6 ronald$
+d209-087-60-216:rmb6 ronald$
+d209-087-60-216:rmb6 ronald$
+d209-087-60-216:rmb6 ronald$
+d209-087-60-216:rmb6 ronald$
+d209-087-60-216:rmb6 ronald$
+d209-087-60-216:rmb6 ronald$
+d209-087-60-216:rmb6 ronald$ ./rmb6.sh
+====================================
+Mutant 1: Interprocedural Operator. Value Replacement
+------------------------------------
+Diff Result for Mutant 1:
+------------------------------------
+*** /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.original.clj	2014-02-22 13:28:45.000000000 -0800
+--- /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.rmb6.1.clj	2014-02-22 14:40:42.000000000 -0800
+***************
+*** 98,104 ****
+    [v poly]
+    (let [a (to-expression (to-sexp (coef poly 2)))
+          b (to-expression (to-sexp (coef poly 1)))
+!         c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+--- 98,104 ----
+    [v poly]
+    (let [a (to-expression (to-sexp (coef poly 2)))
+          b (to-expression (to-sexp (coef poly 1)))
+!         c (to-expression (to-sexp (coef poly 1)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+------------------------------------
+Test Results for Mutant 1:
+------------------------------------
+FAIL in (test-solve) (test_core.clj:146)
+expected: (= (quote #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))}) (solve (quote #{x}) (ex (= (+ (** x 2) (* a x) 1) 0))))
+  actual: (not (= #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))} #{(* 1/2 (+ (- a) (sqrt (+ (** a 2) (* -4 a))))) (* 1/2 (+ (- a) (- (sqrt (+ (** a 2) (* -4 a))))))}))
+--
+FAIL in (test-solve) (test_core.clj:149)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve (quote [x y]) (ex (= (+ (** x 2) (** y 2)) 1)) (ex (= (+ x y) a))))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (sqrt (+ (* 4.0 (** a 2)) (* 16 a))))), x (+ (* 1/2 a) (* (sqrt (+ (* 4.0 (** a 2)) (* 16 a))) 1/4))} {y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* 4.0 (** a 2)) (* 16 a)))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* 4.0 (** a 2)) (* 16 a)))) 1/4))}}))
+--
+FAIL in (test-solve) (test_core.clj:155)
+expected: (= (quote #{0 -1 1}) (solve (quote x) (ex (= (- (** x 4) (** x 2)) 0))))
+  actual: (not (= #{0 -1 1} #{0}))
+--
+FAIL in (test-solve) (test_core.clj:157)
+expected: (= (quote #{1 3}) (solve (quote x) (ex (= (+ (** 2 (* 2 x)) (- (* 5 (** 2 (+ x 1)))) 16) 0))))
+  actual: (not (= #{1 3} #{3.4483829389745972}))
+--
+FAIL in (test-solve-log) (test_solve.clj:111)
+expected: (= #{6} (solve (quote x) (ex (= (+ (log (- x 2)) (log (- (* 2 x) 3))) (* 2 (log x))))))
+  actual: (not (= #{6} #{}))
+--
+FAIL in (test-solve-log) (test_solve.clj:114)
+expected: (= #{16.168643024342963 -10.168643024342964} (solve (quote x) (ex (= (log (- (** x 2) (* 6 x) 16)) 5))))
+  actual: (not (= #{16.168643024342963 -10.168643024342964} #{6.872983346207417 -0.872983346207417}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:84)
+expected: (= #{0.7588723439378913 -0.6588723439378913} (solve (quote x) (ex (= (/ (- (* 2 x) 1) (+ x 1)) (+ (/ (* 2 x) (- x 1)) (/ 5 x))))))
+  actual: (not (= #{0.7588723439378913 -0.6588723439378913} #{}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:88)
+expected: (= #{-3.424428900898052 6.424428900898052} (solve (quote x) (ex (= (+ (/ (- (** x 2) 8) (- (** x 2) 4)) (/ 2 (+ x 2))) (/ 5 (- x 2))))))
+  actual: (not (= #{-3.424428900898052 6.424428900898052} #{}))
+--
+FAIL in (test-solve-abs) (test_solve.clj:98)
+expected: (= #{3.5 1 7.694933459514875 -0.19493345951487484} (solve (quote x) (ex (= (abs (+ (** x 2) (* -6 x) 1)) (abs (/ (+ (* 3 x) 5) 2))))))
+  actual: (not (= #{3.5 1 7.694933459514875 -0.19493345951487484} #{}))
+--
+FAIL in (test-solve-abs) (test_solve.clj:101)
+expected: (= #{-3 1.7320508075688772} (solve (quote x) (ex (= (abs x) (+ (** x 2) x -3)))))
+  actual: (not (= #{-3 1.7320508075688772} #{}))
+--
+FAIL in (test-solve-system) (test_solve.clj:46)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve-system (quote [x y]) #{(ex (= (+ x y) a)) (ex (= (+ (** x 2) (** y 2)) 1))}))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (sqrt (+ (* 4.0 (** a 2)) (* 16 a))))), x (+ (* 1/2 a) (* (sqrt (+ (* 4.0 (** a 2)) (* 16 a))) 1/4))} {y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* 4.0 (** a 2)) (* 16 a)))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* 4.0 (** a 2)) (* 16 a)))) 1/4))}}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:57)
+expected: (= #{1 -4.2444444444444445} (solve (quote x) (ex (= (+ (sqrt (+ x 8)) (sqrt (+ x 15))) (sqrt (+ (* 9 x) 40))))))
+  actual: (not (= #{1 -4.2444444444444445} #{}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:60)
+expected: (= #{1 -0.017994858611825194} (solve (quote x) (ex (= (+ (sqrt (+ (* 5 x) 4)) (sqrt (+ (* 7 x) 2))) (sqrt (+ (* 35 x) 1))))))
+  actual: (not (= #{1 -0.017994858611825194} #{-0.614930820526368 1.596935961914543}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:65)
+expected: (= #{5 0.39167589808513964} (solve (quote x) (ex (= (- (* 7 (sqrt (- (* 2 x) 1))) (* 8 (sqrt (- x 1)))) (* 10 (sqrt (/ (- x 4) 4)))))))
+  actual: (not (= #{5 0.39167589808513964} #{6.253817452297637 -0.8621415542124992}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:70)
+expected: (= #{8.165253628132167 4.890301927423389} (solve (quote x) (ex (= (- (sqrt (- (* 9 x) 14)) (sqrt (+ (* 3 x) 6))) (sqrt (/ (- (* 6 x) 25) 5))))))
+  actual: (not (= #{8.165253628132167 4.890301927423389} #{-0.9332836930589914 13.988839248614548}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:105)
+expected: (= #{5.889547542811505 0.11045245718849461} (solve (quote x) (ex (= (+ (** 100 (+ (** x 2) (* -6 x) 1)) 5) 10))))
+  actual: (not (= #{5.889547542811505 0.11045245718849461} #{6.872983346207417 -0.872983346207417}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:107)
+expected: (= #{0 0.6931471805599453} (solve (quote x) (ex (= (+ (exp (* 2 x)) (* -3 (exp x)) 2) 0))))
+  actual: (not (= #{0 0.6931471805599453} #{1.3327057628202603}))
+--
+Ran 66 tests containing 212 assertions.
+17 failures, 0 errors.
+Tests failed.
+
+
+====================================
+Mutant 2: Interprocedural Operator. Value Replacement
+------------------------------------
+Diff Result for Mutant 2:
+------------------------------------
+*** /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.original.clj	2014-02-22 13:28:45.000000000 -0800
+--- /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.rmb6.2.clj	2014-02-22 14:40:50.000000000 -0800
+***************
+*** 98,104 ****
+    [v poly]
+    (let [a (to-expression (to-sexp (coef poly 2)))
+          b (to-expression (to-sexp (coef poly 1)))
+!         c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+--- 98,104 ----
+    [v poly]
+    (let [a (to-expression (to-sexp (coef poly 2)))
+          b (to-expression (to-sexp (coef poly 1)))
+!         c (to-expression (to-sexp (coef poly 2)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+------------------------------------
+Test Results for Mutant 2:
+------------------------------------
+FAIL in (test-solve) (test_core.clj:149)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve (quote [x y]) (ex (= (+ (** x 2) (** y 2)) 1)) (ex (= (+ x y) a))))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (sqrt (+ (* 4.0 (** a 2)) -16)))), x (+ (* 1/2 a) (* (sqrt (+ (* 4.0 (** a 2)) -16)) 1/4))} {y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* 4.0 (** a 2)) -16))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* 4.0 (** a 2)) -16))) 1/4))}}))
+--
+FAIL in (test-solve) (test_core.clj:155)
+expected: (= (quote #{0 -1 1}) (solve (quote x) (ex (= (- (** x 4) (** x 2)) 0))))
+  actual: (not (= #{0 -1 1} #{}))
+--
+FAIL in (test-solve) (test_core.clj:157)
+expected: (= (quote #{1 3}) (solve (quote x) (ex (= (+ (** 2 (* 2 x)) (- (* 5 (** 2 (+ x 1)))) 16) 0))))
+  actual: (not (= #{1 3} #{3.3072798012527183 -3.3072798012527116}))
+--
+FAIL in (test-solve-log) (test_solve.clj:111)
+expected: (= #{6} (solve (quote x) (ex (= (+ (log (- x 2)) (log (- (* 2 x) 3))) (* 2 (log x))))))
+  actual: (not (= #{6} #{}))
+--
+FAIL in (test-solve-log) (test_solve.clj:114)
+expected: (= #{16.168643024342963 -10.168643024342964} (solve (quote x) (ex (= (log (- (** x 2) (* 6 x) 16)) 5))))
+  actual: (not (= #{16.168643024342963 -10.168643024342964} #{0.1715728752538097 5.82842712474619}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:84)
+expected: (= #{0.7588723439378913 -0.6588723439378913} (solve (quote x) (ex (= (/ (- (* 2 x) 1) (+ x 1)) (+ (/ (* 2 x) (- x 1)) (/ 5 x))))))
+  actual: (not (= #{0.7588723439378913 -0.6588723439378913} #{}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:88)
+expected: (= #{-3.424428900898052 6.424428900898052} (solve (quote x) (ex (= (+ (/ (- (** x 2) 8) (- (** x 2) 4)) (/ 2 (+ x 2))) (/ 5 (- x 2))))))
+  actual: (not (= #{-3.424428900898052 6.424428900898052} #{}))
+--
+FAIL in (test-solve-abs) (test_solve.clj:98)
+expected: (= #{3.5 1 7.694933459514875 -0.19493345951487484} (solve (quote x) (ex (= (abs (+ (** x 2) (* -6 x) 1)) (abs (/ (+ (* 3 x) 5) 2))))))
+  actual: (not (= #{3.5 1 7.694933459514875 -0.19493345951487484} #{}))
+--
+FAIL in (test-solve-abs) (test_solve.clj:101)
+expected: (= #{-3 1.7320508075688772} (solve (quote x) (ex (= (abs x) (+ (** x 2) x -3)))))
+  actual: (not (= #{-3 1.7320508075688772} #{}))
+--
+FAIL in (test-solve-system) (test_solve.clj:46)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve-system (quote [x y]) #{(ex (= (+ x y) a)) (ex (= (+ (** x 2) (** y 2)) 1))}))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (sqrt (+ (* 4.0 (** a 2)) -16)))), x (+ (* 1/2 a) (* (sqrt (+ (* 4.0 (** a 2)) -16)) 1/4))} {y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* 4.0 (** a 2)) -16))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* 4.0 (** a 2)) -16))) 1/4))}}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:57)
+expected: (= #{1 -4.2444444444444445} (solve (quote x) (ex (= (+ (sqrt (+ x 8)) (sqrt (+ x 15))) (sqrt (+ (* 9 x) 40))))))
+  actual: (not (= #{1 -4.2444444444444445} #{-2.899565143395548 -0.3448793010488965}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:60)
+expected: (= #{1 -0.017994858611825194} (solve (quote x) (ex (= (+ (sqrt (+ (* 5 x) 4)) (sqrt (+ (* 7 x) 2))) (sqrt (+ (* 35 x) 1))))))
+  actual: (not (= #{1 -0.017994858611825194} #{}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:65)
+expected: (= #{5 0.39167589808513964} (solve (quote x) (ex (= (- (* 7 (sqrt (- (* 2 x) 1))) (* 8 (sqrt (- x 1)))) (* 10 (sqrt (/ (- x 4) 4)))))))
+  actual: (not (= #{5 0.39167589808513964} #{0.19233195793768545 5.199343940147453}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:70)
+expected: (= #{8.165253628132167 4.890301927423389} (solve (quote x) (ex (= (- (sqrt (- (* 9 x) 14)) (sqrt (+ (* 3 x) 6))) (sqrt (/ (- (* 6 x) 25) 5))))))
+  actual: (not (= #{8.165253628132167 4.890301927423389} #{0.07705047645357857 12.978505079101978}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:105)
+expected: (= #{5.889547542811505 0.11045245718849461} (solve (quote x) (ex (= (+ (** 100 (+ (** x 2) (* -6 x) 1)) 5) 10))))
+  actual: (not (= #{5.889547542811505 0.11045245718849461} #{0.1715728752538097 5.82842712474619}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:107)
+expected: (= #{0 0.6931471805599453} (solve (quote x) (ex (= (+ (exp (* 2 x)) (* -3 (exp x)) 2) 0))))
+  actual: (not (= #{0 0.6931471805599453} #{0.9624236501192069 -0.962423650119207}))
+--
+Ran 66 tests containing 212 assertions.
+16 failures, 0 errors.
+Tests failed.
+
+
+====================================
+Mutant 3: Interprocedural Operator. Value Replacement
+------------------------------------
+Diff Result for Mutant 3:
+------------------------------------
+*** /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.original.clj	2014-02-22 13:28:45.000000000 -0800
+--- /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.rmb6.3.clj	2014-02-22 14:41:34.000000000 -0800
+***************
+*** 97,103 ****
+    "solves the quadratic poly with the abc formula"
+    [v poly]
+    (let [a (to-expression (to-sexp (coef poly 2)))
+!         b (to-expression (to-sexp (coef poly 1)))
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+--- 97,103 ----
+    "solves the quadratic poly with the abc formula"
+    [v poly]
+    (let [a (to-expression (to-sexp (coef poly 2)))
+!         b (to-expression (to-sexp (coef poly 0)))
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+------------------------------------
+Test Results for Mutant 3:
+------------------------------------
+FAIL in (test-solve) (test_core.clj:146)
+expected: (= (quote #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))}) (solve (quote #{x}) (ex (= (+ (** x 2) (* a x) 1) 0))))
+  actual: (not (= #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))} #{}))
+--
+FAIL in (test-solve) (test_core.clj:149)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve (quote [x y]) (ex (= (+ (** x 2) (** y 2)) 1)) (ex (= (+ x y) a))))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* -1/4 (+ (- (** a 2)) (- (sqrt (+ 8 (* -8 (** a 2)) (** (+ -1 (** a 2)) 2)))) 1)) a), x (* 1/4 (+ (- (** a 2)) (- (sqrt (+ 8 (* -8 (** a 2)) (** (+ -1 (** a 2)) 2)))) 1))} {y (+ (* -1/4 (+ (- (** a 2)) (sqrt (+ 8 (* -8 (** a 2)) (** (+ -1 (** a 2)) 2))) 1)) a), x (* 1/4 (+ (- (** a 2)) (sqrt (+ 8 (* -8 (** a 2)) (** (+ -1 (** a 2)) 2))) 1))}}))
+--
+FAIL in (test-solve) (test_core.clj:155)
+expected: (= (quote #{0 -1 1}) (solve (quote x) (ex (= (- (** x 4) (** x 2)) 0))))
+  actual: (not (= #{0 -1 1} #{0 -0.6180339887498949 1.618033988749895}))
+--
+FAIL in (test-solve) (test_core.clj:157)
+expected: (= (quote #{1 3}) (solve (quote x) (ex (= (+ (** 2 (* 2 x)) (- (* 5 (** 2 (+ x 1)))) 16) 0))))
+  actual: (not (= #{1 3} #{}))
+--
+FAIL in (test-solve-log) (test_solve.clj:111)
+expected: (= #{6} (solve (quote x) (ex (= (+ (log (- x 2)) (log (- (* 2 x) 3))) (* 2 (log x))))))
+  actual: (not (= #{6} #{}))
+--
+FAIL in (test-solve-log) (test_solve.clj:114)
+expected: (= #{16.168643024342963 -10.168643024342964} (solve (quote x) (ex (= (log (- (** x 2) (* 6 x) 16)) 5))))
+  actual: (not (= #{16.168643024342963 -10.168643024342964} #{-0.9939906428207479 165.40714974539736}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:84)
+expected: (= #{0.7588723439378913 -0.6588723439378913} (solve (quote x) (ex (= (/ (- (* 2 x) 1) (+ x 1)) (+ (/ (* 2 x) (- x 1)) (/ 5 x))))))
+  actual: (not (= #{0.7588723439378913 -0.6588723439378913} #{}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:88)
+expected: (= #{-3.424428900898052 6.424428900898052} (solve (quote x) (ex (= (+ (/ (- (** x 2) 8) (- (** x 2) 4)) (/ 2 (+ x 2))) (/ 5 (- x 2))))))
+  actual: (not (= #{-3.424428900898052 6.424428900898052} #{}))
+--
+FAIL in (test-solve-abs) (test_solve.clj:98)
+expected: (= #{3.5 1 7.694933459514875 -0.19493345951487484} (solve (quote x) (ex (= (abs (+ (** x 2) (* -6 x) 1)) (abs (/ (+ (* 3 x) 5) 2))))))
+  actual: (not (= #{3.5 1 7.694933459514875 -0.19493345951487484} #{}))
+--
+FAIL in (test-solve-abs) (test_solve.clj:101)
+expected: (= #{-3 1.7320508075688772} (solve (quote x) (ex (= (abs x) (+ (** x 2) x -3)))))
+  actual: (not (= #{-3 1.7320508075688772} #{}))
+--
+FAIL in (test-solve-system) (test_solve.clj:46)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve-system (quote [x y]) #{(ex (= (+ x y) a)) (ex (= (+ (** x 2) (** y 2)) 1))}))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* -1/4 (+ (- (** a 2)) (- (sqrt (+ 8 (* -8 (** a 2)) (** (+ -1 (** a 2)) 2)))) 1)) a), x (* 1/4 (+ (- (** a 2)) (- (sqrt (+ 8 (* -8 (** a 2)) (** (+ -1 (** a 2)) 2)))) 1))} {y (+ (* -1/4 (+ (- (** a 2)) (sqrt (+ 8 (* -8 (** a 2)) (** (+ -1 (** a 2)) 2))) 1)) a), x (* 1/4 (+ (- (** a 2)) (sqrt (+ 8 (* -8 (** a 2)) (** (+ -1 (** a 2)) 2))) 1))}}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:57)
+expected: (= #{1 -4.2444444444444445} (solve (quote x) (ex (= (+ (sqrt (+ x 8)) (sqrt (+ x 15))) (sqrt (+ (* 9 x) 40))))))
+  actual: (not (= #{1 -4.2444444444444445} #{5.079969947255287 -0.8355255028108426}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:60)
+expected: (= #{1 -0.017994858611825194} (solve (quote x) (ex (= (+ (sqrt (+ (* 5 x) 4)) (sqrt (+ (* 7 x) 2))) (sqrt (+ (* 35 x) 1))))))
+  actual: (not (= #{1 -0.017994858611825194} #{0.1434437470165144 -0.12544888840468923}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:65)
+expected: (= #{5 0.39167589808513964} (solve (quote x) (ex (= (- (* 7 (sqrt (- (* 2 x) 1))) (* 8 (sqrt (- x 1)))) (* 10 (sqrt (/ (- x 4) 4)))))))
+  actual: (not (= #{5 0.39167589808513964} #{}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:70)
+expected: (= #{8.165253628132167 4.890301927423389} (solve (quote x) (ex (= (- (sqrt (- (* 9 x) 14)) (sqrt (+ (* 3 x) 6))) (sqrt (/ (- (* 6 x) 25) 5))))))
+  actual: (not (= #{8.165253628132167 4.890301927423389} #{-38.90417323628517 -1.0263823192703931}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:105)
+expected: (= #{5.889547542811505 0.11045245718849461} (solve (quote x) (ex (= (+ (** 100 (+ (** x 2) (* -6 x) 1)) 5) 10))))
+  actual: (not (= #{5.889547542811505 0.11045245718849461} #{}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:107)
+expected: (= #{0 0.6931471805599453} (solve (quote x) (ex (= (+ (exp (* 2 x)) (* -3 (exp x)) 2) 0))))
+  actual: (not (= #{0 0.6931471805599453} #{}))
+--
+Ran 66 tests containing 212 assertions.
+17 failures, 0 errors.
+Tests failed.
+
+
+====================================
+Mutant 4: Interprocedural Operator. Value Replacement
+------------------------------------
+Diff Result for Mutant 4:
+------------------------------------
+*** /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.original.clj	2014-02-22 13:28:45.000000000 -0800
+--- /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.rmb6.4.clj	2014-02-22 14:41:22.000000000 -0800
+***************
+*** 97,103 ****
+    "solves the quadratic poly with the abc formula"
+    [v poly]
+    (let [a (to-expression (to-sexp (coef poly 2)))
+!         b (to-expression (to-sexp (coef poly 1)))
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+--- 97,103 ----
+    "solves the quadratic poly with the abc formula"
+    [v poly]
+    (let [a (to-expression (to-sexp (coef poly 2)))
+!         b (to-expression (to-sexp (coef poly 2)))
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+------------------------------------
+Test Results for Mutant 4:
+------------------------------------
+FAIL in (test-solve) (test_core.clj:146)
+expected: (= (quote #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))}) (solve (quote #{x}) (ex (= (+ (** x 2) (* a x) 1) 0))))
+  actual: (not (= #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))} #{}))
+--
+FAIL in (test-solve) (test_core.clj:149)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve (quote [x y]) (ex (= (+ (** x 2) (** y 2)) 1)) (ex (= (+ x y) a))))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ 1/2 (* -1/4 (sqrt (+ 12.0 (* -8 (** a 2))))) a), x (+ -1/2 (* (sqrt (+ 12.0 (* -8 (** a 2)))) 1/4))} {y (+ 1/2 (* -1/4 (- (sqrt (+ 12.0 (* -8 (** a 2)))))) a), x (+ -1/2 (* (- (sqrt (+ 12.0 (* -8 (** a 2))))) 1/4))}}))
+--
+FAIL in (test-solve) (test_core.clj:155)
+expected: (= (quote #{0 -1 1}) (solve (quote x) (ex (= (- (** x 4) (** x 2)) 0))))
+  actual: (not (= #{0 -1 1} #{0 -1 0.6180339887498949 -1.618033988749895}))
+--
+FAIL in (test-solve) (test_core.clj:157)
+expected: (= (quote #{1 3}) (solve (quote x) (ex (= (+ (** 2 (* 2 x)) (- (* 5 (** 2 (+ x 1)))) 16) 0))))
+  actual: (not (= #{1 3} #{}))
+--
+FAIL in (test-solve-log) (test_solve.clj:111)
+expected: (= #{6} (solve (quote x) (ex (= (+ (log (- x 2)) (log (- (* 2 x) 3))) (* 2 (log x))))))
+  actual: (not (= #{6} #{}))
+--
+FAIL in (test-solve-log) (test_solve.clj:114)
+expected: (= #{16.168643024342963 -10.168643024342964} (solve (quote x) (ex (= (log (- (** x 2) (* 6 x) 16)) 5))))
+  actual: (not (= #{16.168643024342963 -10.168643024342964} #{12.33211436601843 -13.33211436601843}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:84)
+expected: (= #{0.7588723439378913 -0.6588723439378913} (solve (quote x) (ex (= (/ (- (* 2 x) 1) (+ x 1)) (+ (/ (* 2 x) (- x 1)) (/ 5 x))))))
+  actual: (not (= #{0.7588723439378913 -0.6588723439378913} #{}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:88)
+expected: (= #{-3.424428900898052 6.424428900898052} (solve (quote x) (ex (= (+ (/ (- (** x 2) 8) (- (** x 2) 4)) (/ 2 (+ x 2))) (/ 5 (- x 2))))))
+  actual: (not (= #{-3.424428900898052 6.424428900898052} #{}))
+--
+FAIL in (test-solve-abs) (test_solve.clj:98)
+expected: (= #{3.5 1 7.694933459514875 -0.19493345951487484} (solve (quote x) (ex (= (abs (+ (** x 2) (* -6 x) 1)) (abs (/ (+ (* 3 x) 5) 2))))))
+  actual: (not (= #{3.5 1 7.694933459514875 -0.19493345951487484} #{}))
+--
+FAIL in (test-solve-abs) (test_solve.clj:101)
+expected: (= #{-3 1.7320508075688772} (solve (quote x) (ex (= (abs x) (+ (** x 2) x -3)))))
+  actual: (not (= #{-3 1.7320508075688772} #{}))
+--
+FAIL in (test-solve-system) (test_solve.clj:46)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve-system (quote [x y]) #{(ex (= (+ x y) a)) (ex (= (+ (** x 2) (** y 2)) 1))}))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ 1/2 (* -1/4 (sqrt (+ 12.0 (* -8 (** a 2))))) a), x (+ -1/2 (* (sqrt (+ 12.0 (* -8 (** a 2)))) 1/4))} {y (+ 1/2 (* -1/4 (- (sqrt (+ 12.0 (* -8 (** a 2)))))) a), x (+ -1/2 (* (- (sqrt (+ 12.0 (* -8 (** a 2))))) 1/4))}}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:57)
+expected: (= #{1 -4.2444444444444445} (solve (quote x) (ex (= (+ (sqrt (+ x 8)) (sqrt (+ x 15))) (sqrt (+ (* 9 x) 40))))))
+  actual: (not (= #{1 -4.2444444444444445} #{1.6200104821543795 -2.6200104821543797}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:60)
+expected: (= #{1 -0.017994858611825194} (solve (quote x) (ex (= (+ (sqrt (+ (* 5 x) 4)) (sqrt (+ (* 7 x) 2))) (sqrt (+ (* 35 x) 1))))))
+  actual: (not (= #{1 -0.017994858611825194} #{0.017682198469123694 -1.0176821984691236}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:65)
+expected: (= #{5 0.39167589808513964} (solve (quote x) (ex (= (- (* 7 (sqrt (- (* 2 x) 1))) (* 8 (sqrt (- x 1)))) (* 10 (sqrt (/ (- x 4) 4)))))))
+  actual: (not (= #{5 0.39167589808513964} #{}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:70)
+expected: (= #{8.165253628132167 4.890301927423389} (solve (quote x) (ex (= (- (sqrt (- (* 9 x) 14)) (sqrt (+ (* 3 x) 6))) (sqrt (/ (- (* 6 x) 25) 5))))))
+  actual: (not (= #{8.165253628132167 4.890301927423389} #{}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:105)
+expected: (= #{5.889547542811505 0.11045245718849461} (solve (quote x) (ex (= (+ (** 100 (+ (** x 2) (* -6 x) 1)) 5) 10))))
+  actual: (not (= #{5.889547542811505 0.11045245718849461} #{}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:107)
+expected: (= #{0 0.6931471805599453} (solve (quote x) (ex (= (+ (exp (* 2 x)) (* -3 (exp x)) 2) 0))))
+  actual: (not (= #{0 0.6931471805599453} #{}))
+--
+Ran 66 tests containing 212 assertions.
+17 failures, 0 errors.
+Tests failed.
+
+
+====================================
+Mutant 5: Interprocedural Operator. Value Replacement
+------------------------------------
+Diff Result for Mutant 5:
+------------------------------------
+*** /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.original.clj	2014-02-22 13:28:45.000000000 -0800
+--- /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.rmb6.5.clj	2014-02-22 16:54:20.000000000 -0800
+***************
+*** 96,102 ****
+  (defn solve-quadratic
+    "solves the quadratic poly with the abc formula"
+    [v poly]
+!   (let [a (to-expression (to-sexp (coef poly 2)))
+          b (to-expression (to-sexp (coef poly 1)))
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+--- 96,102 ----
+  (defn solve-quadratic
+    "solves the quadratic poly with the abc formula"
+    [v poly]
+!   (let [a (to-expression (to-sexp (coef poly 0)))
+          b (to-expression (to-sexp (coef poly 1)))
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+------------------------------------
+Test Results for Mutant 5:
+------------------------------------
+FAIL in (test-solve) (test_core.clj:149)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve (quote [x y]) (ex (= (+ (** x 2) (** y 2)) 1)) (ex (= (+ x y) a))))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* (/ (+ -2 (* (** a 2) 2))) (+ (* -2 a) (sqrt (+ (* -4 (+ (** a 4) 1)) (* 12.0 (** a 2)))))) a), x (* (/ (+ -2 (* (** a 2) 2))) (+ (* 2 a) (- (sqrt (+ (* -4 (+ (** a 4) 1)) (* 12.0 (** a 2)))))))} {y (+ (* (/ (+ -2 (* (** a 2) 2))) (+ (* -2 a) (* -1 (sqrt (+ (* -4 (+ (** a 4) 1)) (* 12.0 (** a 2))))))) a), x (* (/ (+ -2 (* (** a 2) 2))) (+ (* 2 a) (sqrt (+ (* -4 (+ (** a 4) 1)) (* 12.0 (** a 2))))))}}))
+--
+ERROR in (test-solve) (Numbers.java:156)
+expected: (= (quote #{0 -1 1}) (solve (quote x) (ex (= (- (** x 4) (** x 2)) 0))))
+  actual: java.lang.ArithmeticException: Divide by zero
+--
+FAIL in (test-solve) (test_core.clj:157)
+expected: (= (quote #{1 3}) (solve (quote x) (ex (= (+ (** 2 (* 2 x)) (- (* 5 (** 2 (+ x 1)))) 16) 0))))
+  actual: (not (= #{1 3} #{}))
+--
+FAIL in (test-solve-log) (test_solve.clj:111)
+expected: (= #{6} (solve (quote x) (ex (= (+ (log (- x 2)) (log (- (* 2 x) 3))) (* 2 (log x))))))
+  actual: (not (= #{6} #{}))
+--
+FAIL in (test-solve-log) (test_solve.clj:114)
+expected: (= #{16.168643024342963 -10.168643024342964} (solve (quote x) (ex (= (log (- (** x 2) (* 6 x) 16)) 5))))
+  actual: (not (= #{16.168643024342963 -10.168643024342964} #{}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:84)
+expected: (= #{0.7588723439378913 -0.6588723439378913} (solve (quote x) (ex (= (/ (- (* 2 x) 1) (+ x 1)) (+ (/ (* 2 x) (- x 1)) (/ 5 x))))))
+  actual: (not (= #{0.7588723439378913 -0.6588723439378913} #{}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:88)
+expected: (= #{-3.424428900898052 6.424428900898052} (solve (quote x) (ex (= (+ (/ (- (** x 2) 8) (- (** x 2) 4)) (/ 2 (+ x 2))) (/ 5 (- x 2))))))
+  actual: (not (= #{-3.424428900898052 6.424428900898052} #{}))
+--
+FAIL in (test-solve-abs) (test_solve.clj:98)
+expected: (= #{3.5 1 7.694933459514875 -0.19493345951487484} (solve (quote x) (ex (= (abs (+ (** x 2) (* -6 x) 1)) (abs (/ (+ (* 3 x) 5) 2))))))
+  actual: (not (= #{3.5 1 7.694933459514875 -0.19493345951487484} #{}))
+--
+FAIL in (test-solve-abs) (test_solve.clj:101)
+expected: (= #{-3 1.7320508075688772} (solve (quote x) (ex (= (abs x) (+ (** x 2) x -3)))))
+  actual: (not (= #{-3 1.7320508075688772} #{}))
+--
+FAIL in (test-solve-system) (test_solve.clj:46)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve-system (quote [x y]) #{(ex (= (+ x y) a)) (ex (= (+ (** x 2) (** y 2)) 1))}))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* (/ (+ -2 (* (** a 2) 2))) (+ (* -2 a) (sqrt (+ (* -4 (+ (** a 4) 1)) (* 12.0 (** a 2)))))) a), x (* (/ (+ -2 (* (** a 2) 2))) (+ (* 2 a) (- (sqrt (+ (* -4 (+ (** a 4) 1)) (* 12.0 (** a 2)))))))} {y (+ (* (/ (+ -2 (* (** a 2) 2))) (+ (* -2 a) (* -1 (sqrt (+ (* -4 (+ (** a 4) 1)) (* 12.0 (** a 2))))))) a), x (* (/ (+ -2 (* (** a 2) 2))) (+ (* 2 a) (sqrt (+ (* -4 (+ (** a 4) 1)) (* 12.0 (** a 2))))))}}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:57)
+expected: (= #{1 -4.2444444444444445} (solve (quote x) (ex (= (+ (sqrt (+ x 8)) (sqrt (+ x 15))) (sqrt (+ (* 9 x) 40))))))
+  actual: (not (= #{1 -4.2444444444444445} #{}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:60)
+expected: (= #{1 -0.017994858611825194} (solve (quote x) (ex (= (+ (sqrt (+ (* 5 x) 4)) (sqrt (+ (* 7 x) 2))) (sqrt (+ (* 35 x) 1))))))
+  actual: (not (= #{1 -0.017994858611825194} #{-54.553097806720345 -0.018330764708228538}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:65)
+expected: (= #{5 0.39167589808513964} (solve (quote x) (ex (= (- (* 7 (sqrt (- (* 2 x) 1))) (* 8 (sqrt (- x 1)))) (* 10 (sqrt (/ (- x 4) 4)))))))
+  actual: (not (= #{5 0.39167589808513964} #{2.3225746453369256 0.43055666779438834}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:70)
+expected: (= #{8.165253628132167 4.890301927423389} (solve (quote x) (ex (= (- (sqrt (- (* 9 x) 14)) (sqrt (+ (* 3 x) 6))) (sqrt (/ (- (* 6 x) 25) 5))))))
+  actual: (not (= #{8.165253628132167 4.890301927423389} #{}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:105)
+expected: (= #{5.889547542811505 0.11045245718849461} (solve (quote x) (ex (= (+ (** 100 (+ (** x 2) (* -6 x) 1)) 5) 10))))
+  actual: (not (= #{5.889547542811505 0.11045245718849461} #{9.113736967527275 0.10972447455561354}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:107)
+expected: (= #{0 0.6931471805599453} (solve (quote x) (ex (= (+ (exp (* 2 x)) (* -3 (exp x)) 2) 0))))
+  actual: (not (= #{0 0.6931471805599453} #{}))
+--
+Ran 66 tests containing 212 assertions.
+15 failures, 1 errors.
+Tests failed.
+
+
+====================================
+Mutant 6: Interprocedural Operator. Value Replacement
+------------------------------------
+Diff Result for Mutant 6:
+------------------------------------
+*** /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.original.clj	2014-02-22 13:28:45.000000000 -0800
+--- /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.rmb6.6.clj	2014-02-22 16:21:20.000000000 -0800
+***************
+*** 98,104 ****
+    [v poly]
+    (let [a (to-expression (to-sexp (coef poly 2)))
+          b (to-expression (to-sexp (coef poly 1)))
+!         c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+--- 98,104 ----
+    [v poly]
+    (let [a (to-expression (to-sexp (coef poly 2)))
+          b (to-expression (to-sexp (coef poly 1)))
+!         c (to-expression (to-sexp (coef poly 2)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+------------------------------------
+Test Results for Mutant 6:
+------------------------------------
+FAIL in (test-solve) (test_core.clj:149)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve (quote [x y]) (ex (= (+ (** x 2) (** y 2)) 1)) (ex (= (+ x y) a))))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (sqrt (+ (* 4.0 (** a 2)) -16)))), x (+ (* 1/2 a) (* (sqrt (+ (* 4.0 (** a 2)) -16)) 1/4))} {y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* 4.0 (** a 2)) -16))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* 4.0 (** a 2)) -16))) 1/4))}}))
+--
+FAIL in (test-solve) (test_core.clj:155)
+expected: (= (quote #{0 -1 1}) (solve (quote x) (ex (= (- (** x 4) (** x 2)) 0))))
+  actual: (not (= #{0 -1 1} #{}))
+--
+FAIL in (test-solve) (test_core.clj:157)
+expected: (= (quote #{1 3}) (solve (quote x) (ex (= (+ (** 2 (* 2 x)) (- (* 5 (** 2 (+ x 1)))) 16) 0))))
+  actual: (not (= #{1 3} #{3.3072798012527183 -3.3072798012527116}))
+--
+FAIL in (test-solve-log) (test_solve.clj:111)
+expected: (= #{6} (solve (quote x) (ex (= (+ (log (- x 2)) (log (- (* 2 x) 3))) (* 2 (log x))))))
+  actual: (not (= #{6} #{}))
+--
+FAIL in (test-solve-log) (test_solve.clj:114)
+expected: (= #{16.168643024342963 -10.168643024342964} (solve (quote x) (ex (= (log (- (** x 2) (* 6 x) 16)) 5))))
+  actual: (not (= #{16.168643024342963 -10.168643024342964} #{0.1715728752538097 5.82842712474619}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:84)
+expected: (= #{0.7588723439378913 -0.6588723439378913} (solve (quote x) (ex (= (/ (- (* 2 x) 1) (+ x 1)) (+ (/ (* 2 x) (- x 1)) (/ 5 x))))))
+  actual: (not (= #{0.7588723439378913 -0.6588723439378913} #{}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:88)
+expected: (= #{-3.424428900898052 6.424428900898052} (solve (quote x) (ex (= (+ (/ (- (** x 2) 8) (- (** x 2) 4)) (/ 2 (+ x 2))) (/ 5 (- x 2))))))
+  actual: (not (= #{-3.424428900898052 6.424428900898052} #{}))
+--
+FAIL in (test-solve-abs) (test_solve.clj:98)
+expected: (= #{3.5 1 7.694933459514875 -0.19493345951487484} (solve (quote x) (ex (= (abs (+ (** x 2) (* -6 x) 1)) (abs (/ (+ (* 3 x) 5) 2))))))
+  actual: (not (= #{3.5 1 7.694933459514875 -0.19493345951487484} #{}))
+--
+FAIL in (test-solve-abs) (test_solve.clj:101)
+expected: (= #{-3 1.7320508075688772} (solve (quote x) (ex (= (abs x) (+ (** x 2) x -3)))))
+  actual: (not (= #{-3 1.7320508075688772} #{}))
+--
+FAIL in (test-solve-system) (test_solve.clj:46)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve-system (quote [x y]) #{(ex (= (+ x y) a)) (ex (= (+ (** x 2) (** y 2)) 1))}))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (sqrt (+ (* 4.0 (** a 2)) -16)))), x (+ (* 1/2 a) (* (sqrt (+ (* 4.0 (** a 2)) -16)) 1/4))} {y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* 4.0 (** a 2)) -16))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* 4.0 (** a 2)) -16))) 1/4))}}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:57)
+expected: (= #{1 -4.2444444444444445} (solve (quote x) (ex (= (+ (sqrt (+ x 8)) (sqrt (+ x 15))) (sqrt (+ (* 9 x) 40))))))
+  actual: (not (= #{1 -4.2444444444444445} #{-2.899565143395548 -0.3448793010488965}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:60)
+expected: (= #{1 -0.017994858611825194} (solve (quote x) (ex (= (+ (sqrt (+ (* 5 x) 4)) (sqrt (+ (* 7 x) 2))) (sqrt (+ (* 35 x) 1))))))
+  actual: (not (= #{1 -0.017994858611825194} #{}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:65)
+expected: (= #{5 0.39167589808513964} (solve (quote x) (ex (= (- (* 7 (sqrt (- (* 2 x) 1))) (* 8 (sqrt (- x 1)))) (* 10 (sqrt (/ (- x 4) 4)))))))
+  actual: (not (= #{5 0.39167589808513964} #{0.19233195793768545 5.199343940147453}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:70)
+expected: (= #{8.165253628132167 4.890301927423389} (solve (quote x) (ex (= (- (sqrt (- (* 9 x) 14)) (sqrt (+ (* 3 x) 6))) (sqrt (/ (- (* 6 x) 25) 5))))))
+  actual: (not (= #{8.165253628132167 4.890301927423389} #{0.07705047645357857 12.978505079101978}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:105)
+expected: (= #{5.889547542811505 0.11045245718849461} (solve (quote x) (ex (= (+ (** 100 (+ (** x 2) (* -6 x) 1)) 5) 10))))
+  actual: (not (= #{5.889547542811505 0.11045245718849461} #{0.1715728752538097 5.82842712474619}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:107)
+expected: (= #{0 0.6931471805599453} (solve (quote x) (ex (= (+ (exp (* 2 x)) (* -3 (exp x)) 2) 0))))
+  actual: (not (= #{0 0.6931471805599453} #{0.9624236501192069 -0.962423650119207}))
+--
+Ran 66 tests containing 212 assertions.
+16 failures, 0 errors.
+Tests failed.
+
+
+====================================
+Mutant 7: Arithmetic Operator Replacement
+------------------------------------
+Diff Result for Mutant 7:
+------------------------------------
+*** /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.original.clj	2014-02-22 13:28:45.000000000 -0800
+--- /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.rmb6.7.clj	2014-02-22 16:57:43.000000000 -0800
+***************
+*** 100,106 ****
+          b (to-expression (to-sexp (coef poly 1)))
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+!           [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+--- 100,106 ----
+          b (to-expression (to-sexp (coef poly 1)))
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+!           [(ce `= v (ex' (/ (+ (- b) (- (** b 2) (* 4 a c))) (* 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+------------------------------------
+Test Results for Mutant 7:
+------------------------------------
+FAIL in (test-solve) (test_core.clj:146)
+expected: (= (quote #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))}) (solve (quote #{x}) (ex (= (+ (** x 2) (* a x) 1) 0))))
+  actual: (not (= #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))} #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (+ (* 1/2 (+ (** a 2) (- a))) -2N)}))
+--
+FAIL in (test-solve) (test_core.clj:149)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve (quote [x y]) (ex (= (+ (** x 2) (** y 2)) 1)) (ex (= (+ x y) a))))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (** a 2) -2N), x (+ (* -1.0 (** a 2)) 2N (* 1/2 a))}}))
+--
+FAIL in (test-solve) (test_core.clj:155)
+expected: (= (quote #{0 -1 1}) (solve (quote x) (ex (= (- (** x 4) (** x 2)) 0))))
+  actual: (not (= #{0 -1 1} #{0 -1 2}))
+--
+FAIL in (test-solve) (test_core.clj:157)
+expected: (= (quote #{1 3}) (solve (quote x) (ex (= (+ (** 2 (* 2 x)) (- (* 5 (** 2 (+ x 1)))) 16) 0))))
+  actual: (not (= #{1 3} #{1 4.523561956057013}))
+--
+FAIL in (test-solve-log) (test_solve.clj:111)
+expected: (= #{6} (solve (quote x) (ex (= (+ (log (- x 2)) (log (- (* 2 x) 3))) (* 2 (log x))))))
+  actual: (not (= #{6} #{}))
+--
+FAIL in (test-solve-log) (test_solve.clj:114)
+expected: (= #{16.168643024342963 -10.168643024342964} (solve (quote x) (ex (= (log (- (** x 2) (* 6 x) 16)) 5))))
+  actual: (not (= #{16.168643024342963 -10.168643024342964} #{-10.168643024342964 349.8263182051532}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:84)
+expected: (= #{0.7588723439378913 -0.6588723439378913} (solve (quote x) (ex (= (/ (- (* 2 x) 1) (+ x 1)) (+ (/ (* 2 x) (- x 1)) (/ 5 x))))))
+  actual: (not (= #{0.7588723439378913 -0.6588723439378913} #{0.7588723439378913}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:88)
+expected: (= #{-3.424428900898052 6.424428900898052} (solve (quote x) (ex (= (+ (/ (- (** x 2) 8) (- (** x 2) 4)) (/ 2 (+ x 2))) (/ 5 (- x 2))))))
+  actual: (not (= #{-3.424428900898052 6.424428900898052} #{-3.424428900898052}))
+--
+FAIL in (test-solve-abs) (test_solve.clj:101)
+expected: (= #{-3 1.7320508075688772} (solve (quote x) (ex (= (abs x) (+ (** x 2) x -3)))))
+  actual: (not (= #{-3 1.7320508075688772} #{1.7320508075688772}))
+--
+FAIL in (test-solve-system) (test_solve.clj:46)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve-system (quote [x y]) #{(ex (= (+ x y) a)) (ex (= (+ (** x 2) (** y 2)) 1))}))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (** a 2) -2N), x (+ (* -1.0 (** a 2)) 2N (* 1/2 a))}}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:57)
+expected: (= #{1 -4.2444444444444445} (solve (quote x) (ex (= (+ (sqrt (+ x 8)) (sqrt (+ x 15))) (sqrt (+ (* 9 x) 40))))))
+  actual: (not (= #{1 -4.2444444444444445} #{1 -156.33333333333334}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:60)
+expected: (= #{1 -0.017994858611825194} (solve (quote x) (ex (= (+ (sqrt (+ (* 5 x) 4)) (sqrt (+ (* 7 x) 2))) (sqrt (+ (* 35 x) 1))))))
+  actual: (not (= #{1 -0.017994858611825194} #{1 -49.89974293059126}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:65)
+expected: (= #{5 0.39167589808513964} (solve (quote x) (ex (= (- (* 7 (sqrt (- (* 2 x) 1))) (* 8 (sqrt (- x 1)))) (* 10 (sqrt (/ (- x 4) 4)))))))
+  actual: (not (= #{5 0.39167589808513964} #{0.39167589808513964 5.316822282006644}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:70)
+expected: (= #{8.165253628132167 4.890301927423389} (solve (quote x) (ex (= (- (sqrt (- (* 9 x) 14)) (sqrt (+ (* 3 x) 6))) (sqrt (/ (- (* 6 x) 25) 5))))))
+  actual: (not (= #{8.165253628132167 4.890301927423389} #{-5.055555555555574 8.165253628132167}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:105)
+expected: (= #{5.889547542811505 0.11045245718849461} (solve (quote x) (ex (= (+ (** 100 (+ (** x 2) (* -6 x) 1)) 5) 10))))
+  actual: (not (= #{5.889547542811505 0.11045245718849461} #{19.69897000433602 0.11045245718849461}))
+--
+Ran 66 tests containing 212 assertions.
+15 failures, 0 errors.
+Tests failed.
+
+
+====================================
+Mutant 8: Arithmetic Operator Replacement
+------------------------------------
+Diff Result for Mutant 8:
+------------------------------------
+*** /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.original.clj	2014-02-22 13:28:45.000000000 -0800
+--- /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.rmb6.8.clj	2014-02-22 16:57:40.000000000 -0800
+***************
+*** 101,107 ****
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+!            (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+    (let [first-not-null
+--- 101,107 ----
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+!            (ce `= v (ex' (/ (- (- b) (- (** b 2) (* 4 a c))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+    (let [first-not-null
+------------------------------------
+Test Results for Mutant 8:
+------------------------------------
+FAIL in (test-solve) (test_core.clj:146)
+expected: (= (quote #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))}) (solve (quote #{x}) (ex (= (+ (** x 2) (* a x) 1) 0))))
+  actual: (not (= #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))} #{(+ (* 1/2 (+ (- (** a 2)) (- a))) 2N) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))}))
+--
+FAIL in (test-solve) (test_core.clj:149)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve (quote [x y]) (ex (= (+ (** x 2) (** y 2)) 1)) (ex (= (+ x y) a))))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))} {y (+ (* a 1/2) (- (** a 2)) 2N), x (+ (** a 2) -2N (* 1/2 a))}}))
+--
+FAIL in (test-solve) (test_core.clj:155)
+expected: (= (quote #{0 -1 1}) (solve (quote x) (ex (= (- (** x 4) (** x 2)) 0))))
+  actual: (not (= #{0 -1 1} #{0 1 -2}))
+--
+FAIL in (test-solve) (test_core.clj:157)
+expected: (= (quote #{1 3}) (solve (quote x) (ex (= (+ (** 2 (* 2 x)) (- (* 5 (** 2 (+ x 1)))) 16) 0))))
+  actual: (not (= #{1 3} #{3}))
+--
+FAIL in (test-solve-log) (test_solve.clj:114)
+expected: (= #{16.168643024342963 -10.168643024342964} (solve (quote x) (ex (= (log (- (** x 2) (* 6 x) 16)) 5))))
+  actual: (not (= #{16.168643024342963 -10.168643024342964} #{16.168643024342963 -343.8263182051532}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:84)
+expected: (= #{0.7588723439378913 -0.6588723439378913} (solve (quote x) (ex (= (/ (- (* 2 x) 1) (+ x 1)) (+ (/ (* 2 x) (- x 1)) (/ 5 x))))))
+  actual: (not (= #{0.7588723439378913 -0.6588723439378913} #{-0.6588723439378913}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:88)
+expected: (= #{-3.424428900898052 6.424428900898052} (solve (quote x) (ex (= (+ (/ (- (** x 2) 8) (- (** x 2) 4)) (/ 2 (+ x 2))) (/ 5 (- x 2))))))
+  actual: (not (= #{-3.424428900898052 6.424428900898052} #{6.424428900898052}))
+--
+FAIL in (test-solve-abs) (test_solve.clj:101)
+expected: (= #{-3 1.7320508075688772} (solve (quote x) (ex (= (abs x) (+ (** x 2) x -3)))))
+  actual: (not (= #{-3 1.7320508075688772} #{-3}))
+--
+FAIL in (test-solve-system) (test_solve.clj:46)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve-system (quote [x y]) #{(ex (= (+ x y) a)) (ex (= (+ (** x 2) (** y 2)) 1))}))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))} {y (+ (* a 1/2) (- (** a 2)) 2N), x (+ (** a 2) -2N (* 1/2 a))}}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:57)
+expected: (= #{1 -4.2444444444444445} (solve (quote x) (ex (= (+ (sqrt (+ x 8)) (sqrt (+ x 15))) (sqrt (+ (* 9 x) 40))))))
+  actual: (not (= #{1 -4.2444444444444445} #{-4.2444444444444445 153.0888888888889}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:60)
+expected: (= #{1 -0.017994858611825194} (solve (quote x) (ex (= (+ (sqrt (+ (* 5 x) 4)) (sqrt (+ (* 7 x) 2))) (sqrt (+ (* 35 x) 1))))))
+  actual: (not (= #{1 -0.017994858611825194} #{50.88174807197944 -0.017994858611825194}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:65)
+expected: (= #{5 0.39167589808513964} (solve (quote x) (ex (= (- (* 7 (sqrt (- (* 2 x) 1))) (* 8 (sqrt (- x 1)))) (* 10 (sqrt (/ (- x 4) 4)))))))
+  actual: (not (= #{5 0.39167589808513964} #{5 0.07485361607849417}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:70)
+expected: (= #{8.165253628132167 4.890301927423389} (solve (quote x) (ex (= (- (sqrt (- (* 9 x) 14)) (sqrt (+ (* 3 x) 6))) (sqrt (/ (- (* 6 x) 25) 5))))))
+  actual: (not (= #{8.165253628132167 4.890301927423389} #{4.890301927423389 18.111111111111132}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:105)
+expected: (= #{5.889547542811505 0.11045245718849461} (solve (quote x) (ex (= (+ (** 100 (+ (** x 2) (* -6 x) 1)) 5) 10))))
+  actual: (not (= #{5.889547542811505 0.11045245718849461} #{5.889547542811505 -13.698970004336019}))
+--
+Ran 66 tests containing 212 assertions.
+14 failures, 0 errors.
+Tests failed.
+
+
+====================================
+Mutant 9: Arithmetic Operator Replacement
+------------------------------------
+Diff Result for Mutant 9:
+------------------------------------
+*** /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.original.clj	2014-02-22 13:28:45.000000000 -0800
+--- /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.rmb6.9.clj	2014-02-22 16:59:11.000000000 -0800
+***************
+*** 100,106 ****
+          b (to-expression (to-sexp (coef poly 1)))
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+!           [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+--- 100,106 ----
+          b (to-expression (to-sexp (coef poly 1)))
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+!           [(ce `= v (ex' (/ (+ (- b) (sqrt (- (* b 2) (* 4 a c)))) (* 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+------------------------------------
+Test Results for Mutant 9:
+------------------------------------
+FAIL in (test-solve) (test_core.clj:146)
+expected: (= (quote #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))}) (solve (quote #{x}) (ex (= (+ (** x 2) (* a x) 1) 0))))
+  actual: (not (= #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))} #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (* a 2) -4))))}))
+--
+FAIL in (test-solve) (test_core.clj:149)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve (quote [x y]) (ex (= (+ (** x 2) (** y 2)) 1)) (ex (= (+ x y) a))))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (sqrt (+ 8 (* -8 (** a 2)) (* -4 a))))), x (+ (* 1/2 a) (* (sqrt (+ 8 (* -8 (** a 2)) (* -4 a))) 1/4))} {y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))}}))
+--
+FAIL in (test-solve) (test_core.clj:157)
+expected: (= (quote #{1 3}) (solve (quote x) (ex (= (+ (** 2 (* 2 x)) (- (* 5 (** 2 (+ x 1)))) 16) 0))))
+  actual: (not (= #{1 3} #{1}))
+--
+FAIL in (test-solve-log) (test_solve.clj:111)
+expected: (= #{6} (solve (quote x) (ex (= (+ (log (- x 2)) (log (- (* 2 x) 3))) (* 2 (log x))))))
+  actual: (not (= #{6} #{}))
+--
+FAIL in (test-solve-log) (test_solve.clj:114)
+expected: (= #{16.168643024342963 -10.168643024342964} (solve (quote x) (ex (= (log (- (** x 2) (* 6 x) 16)) 5))))
+  actual: (not (= #{16.168643024342963 -10.168643024342964} #{15.704847858301044 -10.168643024342964}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:84)
+expected: (= #{0.7588723439378913 -0.6588723439378913} (solve (quote x) (ex (= (/ (- (* 2 x) 1) (+ x 1)) (+ (/ (* 2 x) (- x 1)) (/ 5 x))))))
+  actual: (not (= #{0.7588723439378913 -0.6588723439378913} #{0.7588723439378913}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:88)
+expected: (= #{-3.424428900898052 6.424428900898052} (solve (quote x) (ex (= (+ (/ (- (** x 2) 8) (- (** x 2) 4)) (/ 2 (+ x 2))) (/ 5 (- x 2))))))
+  actual: (not (= #{-3.424428900898052 6.424428900898052} #{-3.424428900898052}))
+--
+FAIL in (test-solve-abs) (test_solve.clj:101)
+expected: (= #{-3 1.7320508075688772} (solve (quote x) (ex (= (abs x) (+ (** x 2) x -3)))))
+  actual: (not (= #{-3 1.7320508075688772} #{1.7320508075688772}))
+--
+FAIL in (test-solve-system) (test_solve.clj:46)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve-system (quote [x y]) #{(ex (= (+ x y) a)) (ex (= (+ (** x 2) (** y 2)) 1))}))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (sqrt (+ 8 (* -8 (** a 2)) (* -4 a))))), x (+ (* 1/2 a) (* (sqrt (+ 8 (* -8 (** a 2)) (* -4 a))) 1/4))} {y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))}}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:57)
+expected: (= #{1 -4.2444444444444445} (solve (quote x) (ex (= (+ (sqrt (+ x 8)) (sqrt (+ x 15))) (sqrt (+ (* 9 x) 40))))))
+  actual: (not (= #{1 -4.2444444444444445} #{1 -3.647128865398704}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:60)
+expected: (= #{1 -0.017994858611825194} (solve (quote x) (ex (= (+ (sqrt (+ (* 5 x) 4)) (sqrt (+ (* 7 x) 2))) (sqrt (+ (* 35 x) 1))))))
+  actual: (not (= #{1 -0.017994858611825194} #{1 0.33920096255583937}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:65)
+expected: (= #{5 0.39167589808513964} (solve (quote x) (ex (= (- (* 7 (sqrt (- (* 2 x) 1))) (* 8 (sqrt (- x 1)))) (* 10 (sqrt (/ (- x 4) 4)))))))
+  actual: (not (= #{5 0.39167589808513964} #{0.39167589808513964}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:70)
+expected: (= #{8.165253628132167 4.890301927423389} (solve (quote x) (ex (= (- (sqrt (- (* 9 x) 14)) (sqrt (+ (* 3 x) 6))) (sqrt (/ (- (* 6 x) 25) 5))))))
+  actual: (not (= #{8.165253628132167 4.890301927423389} #{8.165253628132167}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:105)
+expected: (= #{5.889547542811505 0.11045245718849461} (solve (quote x) (ex (= (+ (** 100 (+ (** x 2) (* -6 x) 1)) 5) 10))))
+  actual: (not (= #{5.889547542811505 0.11045245718849461} #{0.11045245718849461}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:107)
+expected: (= #{0 0.6931471805599453} (solve (quote x) (ex (= (+ (exp (* 2 x)) (* -3 (exp x)) 2) 0))))
+  actual: (not (= #{0 0.6931471805599453} #{0}))
+--
+Ran 66 tests containing 212 assertions.
+15 failures, 0 errors.
+Tests failed.
+
+
+====================================
+Mutant 10: Arithmetic Operator Replacement
+------------------------------------
+Diff Result for Mutant 10:
+------------------------------------
+*** /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.original.clj	2014-02-22 13:28:45.000000000 -0800
+--- /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.rmb6.10.clj	2014-02-22 16:59:14.000000000 -0800
+***************
+*** 101,107 ****
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+!            (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+    (let [first-not-null
+--- 101,107 ----
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+!            (ce `= v (ex' (/ (- (- b) (sqrt (- (* b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+    (let [first-not-null
+------------------------------------
+Test Results for Mutant 10:
+------------------------------------
+FAIL in (test-solve) (test_core.clj:146)
+expected: (= (quote #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))}) (solve (quote #{x}) (ex (= (+ (** x 2) (* a x) 1) 0))))
+  actual: (not (= #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))} #{(* 1/2 (+ (- a) (- (sqrt (+ (* a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))}))
+--
+FAIL in (test-solve) (test_core.clj:149)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve (quote [x y]) (ex (= (+ (** x 2) (** y 2)) 1)) (ex (= (+ x y) a))))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ 8 (* -8 (** a 2)) (* -4 a)))))), x (+ (* 1/2 a) (* (- (sqrt (+ 8 (* -8 (** a 2)) (* -4 a)))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}))
+--
+FAIL in (test-solve) (test_core.clj:157)
+expected: (= (quote #{1 3}) (solve (quote x) (ex (= (+ (** 2 (* 2 x)) (- (* 5 (** 2 (+ x 1)))) 16) 0))))
+  actual: (not (= #{1 3} #{3}))
+--
+FAIL in (test-solve-log) (test_solve.clj:114)
+expected: (= #{16.168643024342963 -10.168643024342964} (solve (quote x) (ex (= (log (- (** x 2) (* 6 x) 16)) 5))))
+  actual: (not (= #{16.168643024342963 -10.168643024342964} #{-9.704847858301044 16.168643024342963}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:84)
+expected: (= #{0.7588723439378913 -0.6588723439378913} (solve (quote x) (ex (= (/ (- (* 2 x) 1) (+ x 1)) (+ (/ (* 2 x) (- x 1)) (/ 5 x))))))
+  actual: (not (= #{0.7588723439378913 -0.6588723439378913} #{-0.6588723439378913}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:88)
+expected: (= #{-3.424428900898052 6.424428900898052} (solve (quote x) (ex (= (+ (/ (- (** x 2) 8) (- (** x 2) 4)) (/ 2 (+ x 2))) (/ 5 (- x 2))))))
+  actual: (not (= #{-3.424428900898052 6.424428900898052} #{6.424428900898052}))
+--
+FAIL in (test-solve-system) (test_solve.clj:46)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve-system (quote [x y]) #{(ex (= (+ x y) a)) (ex (= (+ (** x 2) (** y 2)) 1))}))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ 8 (* -8 (** a 2)) (* -4 a)))))), x (+ (* 1/2 a) (* (- (sqrt (+ 8 (* -8 (** a 2)) (* -4 a)))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:57)
+expected: (= #{1 -4.2444444444444445} (solve (quote x) (ex (= (+ (sqrt (+ x 8)) (sqrt (+ x 15))) (sqrt (+ (* 9 x) 40))))))
+  actual: (not (= #{1 -4.2444444444444445} #{-4.2444444444444445 0.40268442095425944}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:60)
+expected: (= #{1 -0.017994858611825194} (solve (quote x) (ex (= (+ (sqrt (+ (* 5 x) 4)) (sqrt (+ (* 7 x) 2))) (sqrt (+ (* 35 x) 1))))))
+  actual: (not (= #{1 -0.017994858611825194} #{0.6428041788323354 -0.017994858611825194}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:65)
+expected: (= #{5 0.39167589808513964} (solve (quote x) (ex (= (- (* 7 (sqrt (- (* 2 x) 1))) (* 8 (sqrt (- x 1)))) (* 10 (sqrt (/ (- x 4) 4)))))))
+  actual: (not (= #{5 0.39167589808513964} #{5}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:70)
+expected: (= #{8.165253628132167 4.890301927423389} (solve (quote x) (ex (= (- (sqrt (- (* 9 x) 14)) (sqrt (+ (* 3 x) 6))) (sqrt (/ (- (* 6 x) 25) 5))))))
+  actual: (not (= #{8.165253628132167 4.890301927423389} #{4.890301927423389}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:105)
+expected: (= #{5.889547542811505 0.11045245718849461} (solve (quote x) (ex (= (+ (** 100 (+ (** x 2) (* -6 x) 1)) 5) 10))))
+  actual: (not (= #{5.889547542811505 0.11045245718849461} #{5.889547542811505}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:107)
+expected: (= #{0 0.6931471805599453} (solve (quote x) (ex (= (+ (exp (* 2 x)) (* -3 (exp x)) 2) 0))))
+  actual: (not (= #{0 0.6931471805599453} #{0.6931471805599453}))
+--
+Ran 66 tests containing 212 assertions.
+13 failures, 0 errors.
+Tests failed.
+
+
+====================================
+Mutant 11: Arithmetic Operator Replacement
+------------------------------------
+Diff Result for Mutant 11:
+------------------------------------
+*** /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.original.clj	2014-02-22 13:28:45.000000000 -0800
+--- /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.rmb6.11.clj	2014-02-22 14:44:24.000000000 -0800
+***************
+*** 100,106 ****
+          b (to-expression (to-sexp (coef poly 1)))
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+!           [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+--- 100,106 ----
+          b (to-expression (to-sexp (coef poly 1)))
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+!           [(ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+------------------------------------
+Test Results for Mutant 11:
+------------------------------------
+FAIL in (test-solve) (test_core.clj:146)
+expected: (= (quote #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))}) (solve (quote #{x}) (ex (= (+ (** x 2) (* a x) 1) 0))))
+  actual: (not (= #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))} #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4)))))}))
+--
+FAIL in (test-solve) (test_core.clj:149)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve (quote [x y]) (ex (= (+ (** x 2) (** y 2)) 1)) (ex (= (+ x y) a))))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))}}))
+--
+FAIL in (test-solve) (test_core.clj:155)
+expected: (= (quote #{0 -1 1}) (solve (quote x) (ex (= (- (** x 4) (** x 2)) 0))))
+  actual: (not (= #{0 -1 1} #{0 -1}))
+--
+FAIL in (test-solve) (test_core.clj:157)
+expected: (= (quote #{1 3}) (solve (quote x) (ex (= (+ (** 2 (* 2 x)) (- (* 5 (** 2 (+ x 1)))) 16) 0))))
+  actual: (not (= #{1 3} #{1}))
+--
+FAIL in (test-solve-log) (test_solve.clj:111)
+expected: (= #{6} (solve (quote x) (ex (= (+ (log (- x 2)) (log (- (* 2 x) 3))) (* 2 (log x))))))
+  actual: (not (= #{6} #{}))
+--
+FAIL in (test-solve-log) (test_solve.clj:114)
+expected: (= #{16.168643024342963 -10.168643024342964} (solve (quote x) (ex (= (log (- (** x 2) (* 6 x) 16)) 5))))
+  actual: (not (= #{16.168643024342963 -10.168643024342964} #{-10.168643024342964}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:84)
+expected: (= #{0.7588723439378913 -0.6588723439378913} (solve (quote x) (ex (= (/ (- (* 2 x) 1) (+ x 1)) (+ (/ (* 2 x) (- x 1)) (/ 5 x))))))
+  actual: (not (= #{0.7588723439378913 -0.6588723439378913} #{0.7588723439378913}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:88)
+expected: (= #{-3.424428900898052 6.424428900898052} (solve (quote x) (ex (= (+ (/ (- (** x 2) 8) (- (** x 2) 4)) (/ 2 (+ x 2))) (/ 5 (- x 2))))))
+  actual: (not (= #{-3.424428900898052 6.424428900898052} #{-3.424428900898052}))
+--
+FAIL in (test-solve-abs) (test_solve.clj:101)
+expected: (= #{-3 1.7320508075688772} (solve (quote x) (ex (= (abs x) (+ (** x 2) x -3)))))
+  actual: (not (= #{-3 1.7320508075688772} #{1.7320508075688772}))
+--
+FAIL in (test-solve-system) (test_solve.clj:46)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve-system (quote [x y]) #{(ex (= (+ x y) a)) (ex (= (+ (** x 2) (** y 2)) 1))}))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))}}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:57)
+expected: (= #{1 -4.2444444444444445} (solve (quote x) (ex (= (+ (sqrt (+ x 8)) (sqrt (+ x 15))) (sqrt (+ (* 9 x) 40))))))
+  actual: (not (= #{1 -4.2444444444444445} #{1}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:60)
+expected: (= #{1 -0.017994858611825194} (solve (quote x) (ex (= (+ (sqrt (+ (* 5 x) 4)) (sqrt (+ (* 7 x) 2))) (sqrt (+ (* 35 x) 1))))))
+  actual: (not (= #{1 -0.017994858611825194} #{1}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:65)
+expected: (= #{5 0.39167589808513964} (solve (quote x) (ex (= (- (* 7 (sqrt (- (* 2 x) 1))) (* 8 (sqrt (- x 1)))) (* 10 (sqrt (/ (- x 4) 4)))))))
+  actual: (not (= #{5 0.39167589808513964} #{0.39167589808513964}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:70)
+expected: (= #{8.165253628132167 4.890301927423389} (solve (quote x) (ex (= (- (sqrt (- (* 9 x) 14)) (sqrt (+ (* 3 x) 6))) (sqrt (/ (- (* 6 x) 25) 5))))))
+  actual: (not (= #{8.165253628132167 4.890301927423389} #{8.165253628132167}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:105)
+expected: (= #{5.889547542811505 0.11045245718849461} (solve (quote x) (ex (= (+ (** 100 (+ (** x 2) (* -6 x) 1)) 5) 10))))
+  actual: (not (= #{5.889547542811505 0.11045245718849461} #{0.11045245718849461}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:107)
+expected: (= #{0 0.6931471805599453} (solve (quote x) (ex (= (+ (exp (* 2 x)) (* -3 (exp x)) 2) 0))))
+  actual: (not (= #{0 0.6931471805599453} #{0}))
+--
+Ran 66 tests containing 212 assertions.
+16 failures, 0 errors.
+Tests failed.
+
+
+====================================
+Mutant 12: Arithmetic Operator Replacement
+------------------------------------
+Diff Result for Mutant 12:
+------------------------------------
+*** /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.original.clj	2014-02-22 13:28:45.000000000 -0800
+--- /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.rmb6.12.clj	2014-02-22 14:46:16.000000000 -0800
+***************
+*** 100,106 ****
+          b (to-expression (to-sexp (coef poly 1)))
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+!           [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+--- 100,106 ----
+          b (to-expression (to-sexp (coef poly 1)))
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+!           [(ce `= v (ex' (/ (+ (+ b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+------------------------------------
+Test Results for Mutant 12:
+------------------------------------
+FAIL in (test-solve) (test_core.clj:146)
+expected: (= (quote #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))}) (solve (quote #{x}) (ex (= (+ (** x 2) (* a x) 1) 0))))
+  actual: (not (= #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))} #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ a (sqrt (+ (** a 2) -4))))}))
+--
+FAIL in (test-solve) (test_core.clj:149)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve (quote [x y]) (ex (= (+ (** x 2) (** y 2)) 1)) (ex (= (+ x y) a))))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 3/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* -1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}))
+--
+FAIL in (test-solve) (test_core.clj:157)
+expected: (= (quote #{1 3}) (solve (quote x) (ex (= (+ (** 2 (* 2 x)) (- (* 5 (** 2 (+ x 1)))) 16) 0))))
+  actual: (not (= #{1 3} #{1}))
+--
+FAIL in (test-solve-log) (test_solve.clj:111)
+expected: (= #{6} (solve (quote x) (ex (= (+ (log (- x 2)) (log (- (* 2 x) 3))) (* 2 (log x))))))
+  actual: (not (= #{6} #{}))
+--
+FAIL in (test-solve-log) (test_solve.clj:114)
+expected: (= #{16.168643024342963 -10.168643024342964} (solve (quote x) (ex (= (log (- (** x 2) (* 6 x) 16)) 5))))
+  actual: (not (= #{16.168643024342963 -10.168643024342964} #{10.168643024342964 -10.168643024342964}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:84)
+expected: (= #{0.7588723439378913 -0.6588723439378913} (solve (quote x) (ex (= (/ (- (* 2 x) 1) (+ x 1)) (+ (/ (* 2 x) (- x 1)) (/ 5 x))))))
+  actual: (not (= #{0.7588723439378913 -0.6588723439378913} #{0.7588723439378913}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:88)
+expected: (= #{-3.424428900898052 6.424428900898052} (solve (quote x) (ex (= (+ (/ (- (** x 2) 8) (- (** x 2) 4)) (/ 2 (+ x 2))) (/ 5 (- x 2))))))
+  actual: (not (= #{-3.424428900898052 6.424428900898052} #{-3.424428900898052}))
+--
+FAIL in (test-solve-abs) (test_solve.clj:101)
+expected: (= #{-3 1.7320508075688772} (solve (quote x) (ex (= (abs x) (+ (** x 2) x -3)))))
+  actual: (not (= #{-3 1.7320508075688772} #{1.7320508075688772}))
+--
+FAIL in (test-solve-system) (test_solve.clj:46)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve-system (quote [x y]) #{(ex (= (+ x y) a)) (ex (= (+ (** x 2) (** y 2)) 1))}))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 3/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* -1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:57)
+expected: (= #{1 -4.2444444444444445} (solve (quote x) (ex (= (+ (sqrt (+ x 8)) (sqrt (+ x 15))) (sqrt (+ (* 9 x) 40))))))
+  actual: (not (= #{1 -4.2444444444444445} #{-1 1}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:60)
+expected: (= #{1 -0.017994858611825194} (solve (quote x) (ex (= (+ (sqrt (+ (* 5 x) 4)) (sqrt (+ (* 7 x) 2))) (sqrt (+ (* 35 x) 1))))))
+  actual: (not (= #{1 -0.017994858611825194} #{-1 1}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:65)
+expected: (= #{5 0.39167589808513964} (solve (quote x) (ex (= (- (* 7 (sqrt (- (* 2 x) 1))) (* 8 (sqrt (- x 1)))) (* 10 (sqrt (/ (- x 4) 4)))))))
+  actual: (not (= #{5 0.39167589808513964} #{-0.39167589808513964 0.39167589808513964}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:70)
+expected: (= #{8.165253628132167 4.890301927423389} (solve (quote x) (ex (= (- (sqrt (- (* 9 x) 14)) (sqrt (+ (* 3 x) 6))) (sqrt (/ (- (* 6 x) 25) 5))))))
+  actual: (not (= #{8.165253628132167 4.890301927423389} #{8.165253628132167 -8.165253628132167}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:105)
+expected: (= #{5.889547542811505 0.11045245718849461} (solve (quote x) (ex (= (+ (** 100 (+ (** x 2) (* -6 x) 1)) 5) 10))))
+  actual: (not (= #{5.889547542811505 0.11045245718849461} #{-0.11045245718849461 0.11045245718849461}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:107)
+expected: (= #{0 0.6931471805599453} (solve (quote x) (ex (= (+ (exp (* 2 x)) (* -3 (exp x)) 2) 0))))
+  actual: (not (= #{0 0.6931471805599453} #{0}))
+--
+Ran 66 tests containing 212 assertions.
+15 failures, 0 errors.
+Tests failed.
+
+
+====================================
+Mutant 13: Arithmetic Operator Replacement
+------------------------------------
+Diff Result for Mutant 13:
+------------------------------------
+*** /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.original.clj	2014-02-22 13:28:45.000000000 -0800
+--- /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.rmb6.13.clj	2014-02-22 14:46:32.000000000 -0800
+***************
+*** 100,106 ****
+          b (to-expression (to-sexp (coef poly 1)))
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+!           [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+--- 100,106 ----
+          b (to-expression (to-sexp (coef poly 1)))
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+!           [(ce `= v (ex' (/ (+ (- b) (sqrt (* (** b 2) (* 4 a c)))) (* 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+------------------------------------
+Test Results for Mutant 13:
+------------------------------------
+FAIL in (test-solve) (test_core.clj:146)
+expected: (= (quote #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))}) (solve (quote #{x}) (ex (= (+ (** x 2) (* a x) 1) 0))))
+  actual: (not (= #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))} #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (* (** a 2) 4))))}))
+--
+FAIL in (test-solve) (test_core.clj:149)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve (quote [x y]) (ex (= (+ (** x 2) (** y 2)) 1)) (ex (= (+ x y) a))))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -32.0 (** a 2)) (* (** a 4) 32.0))))), x (+ (* 1/2 a) (* (sqrt (+ (* -32.0 (** a 2)) (* (** a 4) 32.0))) 1/4))} {y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))}}))
+--
+FAIL in (test-solve) (test_core.clj:155)
+expected: (= (quote #{0 -1 1}) (solve (quote x) (ex (= (- (** x 4) (** x 2)) 0))))
+  actual: (not (= #{0 -1 1} #{0 -1}))
+--
+FAIL in (test-solve) (test_core.clj:157)
+expected: (= (quote #{1 3}) (solve (quote x) (ex (= (+ (** 2 (* 2 x)) (- (* 5 (** 2 (+ x 1)))) 16) 0))))
+  actual: (not (= #{1 3} #{1 5.491853096329675}))
+--
+FAIL in (test-solve-log) (test_solve.clj:111)
+expected: (= #{6} (solve (quote x) (ex (= (+ (log (- x 2)) (log (- (* 2 x) 3))) (* 2 (log x))))))
+  actual: (not (= #{6} #{}))
+--
+FAIL in (test-solve-log) (test_solve.clj:114)
+expected: (= #{16.168643024342963 -10.168643024342964} (solve (quote x) (ex (= (log (- (** x 2) (* 6 x) 16)) 5))))
+  actual: (not (= #{16.168643024342963 -10.168643024342964} #{-10.168643024342964}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:84)
+expected: (= #{0.7588723439378913 -0.6588723439378913} (solve (quote x) (ex (= (/ (- (* 2 x) 1) (+ x 1)) (+ (/ (* 2 x) (- x 1)) (/ 5 x))))))
+  actual: (not (= #{0.7588723439378913 -0.6588723439378913} #{0.7588723439378913}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:88)
+expected: (= #{-3.424428900898052 6.424428900898052} (solve (quote x) (ex (= (+ (/ (- (** x 2) 8) (- (** x 2) 4)) (/ 2 (+ x 2))) (/ 5 (- x 2))))))
+  actual: (not (= #{-3.424428900898052 6.424428900898052} #{-3.424428900898052}))
+--
+FAIL in (test-solve-abs) (test_solve.clj:101)
+expected: (= #{-3 1.7320508075688772} (solve (quote x) (ex (= (abs x) (+ (** x 2) x -3)))))
+  actual: (not (= #{-3 1.7320508075688772} #{1.7320508075688772}))
+--
+FAIL in (test-solve-system) (test_solve.clj:46)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve-system (quote [x y]) #{(ex (= (+ x y) a)) (ex (= (+ (** x 2) (** y 2)) 1))}))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -32.0 (** a 2)) (* (** a 4) 32.0))))), x (+ (* 1/2 a) (* (sqrt (+ (* -32.0 (** a 2)) (* (** a 4) 32.0))) 1/4))} {y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))}}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:57)
+expected: (= #{1 -4.2444444444444445} (solve (quote x) (ex (= (+ (sqrt (+ x 8)) (sqrt (+ x 15))) (sqrt (+ (* 9 x) 40))))))
+  actual: (not (= #{1 -4.2444444444444445} #{1}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:60)
+expected: (= #{1 -0.017994858611825194} (solve (quote x) (ex (= (+ (sqrt (+ (* 5 x) 4)) (sqrt (+ (* 7 x) 2))) (sqrt (+ (* 35 x) 1))))))
+  actual: (not (= #{1 -0.017994858611825194} #{1}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:65)
+expected: (= #{5 0.39167589808513964} (solve (quote x) (ex (= (- (* 7 (sqrt (- (* 2 x) 1))) (* 8 (sqrt (- x 1)))) (* 10 (sqrt (/ (- x 4) 4)))))))
+  actual: (not (= #{5 0.39167589808513964} #{4.558270675356029 0.39167589808513964}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:70)
+expected: (= #{8.165253628132167 4.890301927423389} (solve (quote x) (ex (= (- (sqrt (- (* 9 x) 14)) (sqrt (+ (* 3 x) 6))) (sqrt (/ (- (* 6 x) 25) 5))))))
+  actual: (not (= #{8.165253628132167 4.890301927423389} #{-171.6697951574337 8.165253628132167}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:105)
+expected: (= #{5.889547542811505 0.11045245718849461} (solve (quote x) (ex (= (+ (** 100 (+ (** x 2) (* -6 x) 1)) 5) 10))))
+  actual: (not (= #{5.889547542811505 0.11045245718849461} #{0.11045245718849461 7.839270598132704}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:107)
+expected: (= #{0 0.6931471805599453} (solve (quote x) (ex (= (+ (exp (* 2 x)) (* -3 (exp x)) 2) 0))))
+  actual: (not (= #{0 0.6931471805599453} #{0 1.7479191545616903}))
+--
+Ran 66 tests containing 212 assertions.
+16 failures, 0 errors.
+Tests failed.
+
+
+====================================
+Mutant 14: Arithmetic Operator Replacement
+------------------------------------
+Diff Result for Mutant 14:
+------------------------------------
+*** /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.original.clj	2014-02-22 13:28:45.000000000 -0800
+--- /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.rmb6.14.clj	2014-02-22 14:46:41.000000000 -0800
+***************
+*** 100,106 ****
+          b (to-expression (to-sexp (coef poly 1)))
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+!           [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+--- 100,106 ----
+          b (to-expression (to-sexp (coef poly 1)))
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+!           [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (/ 4 a c)))) (* 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+------------------------------------
+Test Results for Mutant 14:
+------------------------------------
+FAIL in (test-solve) (test_core.clj:149)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve (quote [x y]) (ex (= (+ (** x 2) (** y 2)) 1)) (ex (= (+ x y) a))))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (sqrt (+ (* 4.0 (** a 2)) (* -2N (/ (+ -1 (** a 2)))))))), x (+ (* 1/2 a) (* (sqrt (+ (* 4.0 (** a 2)) (* -2N (/ (+ -1 (** a 2)))))) 1/4))} {y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))}}))
+--
+ERROR in (test-solve) (Numbers.java:156)
+expected: (= (quote #{0 -1 1}) (solve (quote x) (ex (= (- (** x 4) (** x 2)) 0))))
+  actual: java.lang.ArithmeticException: Divide by zero
+--
+FAIL in (test-solve) (test_core.clj:157)
+expected: (= (quote #{1 3}) (solve (quote x) (ex (= (+ (** 2 (* 2 x)) (- (* 5 (** 2 (+ x 1)))) 16) 0))))
+  actual: (not (= #{1 3} #{1 3.3210255639816837}))
+--
+FAIL in (test-solve-log) (test_solve.clj:111)
+expected: (= #{6} (solve (quote x) (ex (= (+ (log (- x 2)) (log (- (* 2 x) 3))) (* 2 (log x))))))
+  actual: (not (= #{6} #{}))
+--
+FAIL in (test-solve-log) (test_solve.clj:114)
+expected: (= #{16.168643024342963 -10.168643024342964} (solve (quote x) (ex (= (log (- (** x 2) (* 6 x) 16)) 5))))
+  actual: (not (= #{16.168643024342963 -10.168643024342964} #{-10.168643024342964 6.001013535160913}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:84)
+expected: (= #{0.7588723439378913 -0.6588723439378913} (solve (quote x) (ex (= (/ (- (* 2 x) 1) (+ x 1)) (+ (/ (* 2 x) (- x 1)) (/ 5 x))))))
+  actual: (not (= #{0.7588723439378913 -0.6588723439378913} #{0.7588723439378913}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:88)
+expected: (= #{-3.424428900898052 6.424428900898052} (solve (quote x) (ex (= (+ (/ (- (** x 2) 8) (- (** x 2) 4)) (/ 2 (+ x 2))) (/ 5 (- x 2))))))
+  actual: (not (= #{-3.424428900898052 6.424428900898052} #{-3.424428900898052}))
+--
+FAIL in (test-solve-abs) (test_solve.clj:101)
+expected: (= #{-3 1.7320508075688772} (solve (quote x) (ex (= (abs x) (+ (** x 2) x -3)))))
+  actual: (not (= #{-3 1.7320508075688772} #{1.7320508075688772}))
+--
+FAIL in (test-solve-system) (test_solve.clj:46)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve-system (quote [x y]) #{(ex (= (+ x y) a)) (ex (= (+ (** x 2) (** y 2)) 1))}))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (sqrt (+ (* 4.0 (** a 2)) (* -2N (/ (+ -1 (** a 2)))))))), x (+ (* 1/2 a) (* (sqrt (+ (* 4.0 (** a 2)) (* -2N (/ (+ -1 (** a 2)))))) 1/4))} {y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))}}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:57)
+expected: (= #{1 -4.2444444444444445} (solve (quote x) (ex (= (+ (sqrt (+ x 8)) (sqrt (+ x 15))) (sqrt (+ (* 9 x) 40))))))
+  actual: (not (= #{1 -4.2444444444444445} #{-3.2444489778869046 1}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:60)
+expected: (= #{1 -0.017994858611825194} (solve (quote x) (ex (= (+ (sqrt (+ (* 5 x) 4)) (sqrt (+ (* 7 x) 2))) (sqrt (+ (* 35 x) 1))))))
+  actual: (not (= #{1 -0.017994858611825194} #{1 -6.326726781292618E-7}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:65)
+expected: (= #{5 0.39167589808513964} (solve (quote x) (ex (= (- (* 7 (sqrt (- (* 2 x) 1))) (* 8 (sqrt (- x 1)))) (* 10 (sqrt (/ (- x 4) 4)))))))
+  actual: (not (= #{5 0.39167589808513964} #{0.39167589808513964}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:70)
+expected: (= #{8.165253628132167 4.890301927423389} (solve (quote x) (ex (= (- (sqrt (- (* 9 x) 14)) (sqrt (+ (* 3 x) 6))) (sqrt (/ (- (* 6 x) 25) 5))))))
+  actual: (not (= #{8.165253628132167 4.890301927423389} #{8.165253628132167 8.812258271326155E-5}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:105)
+expected: (= #{5.889547542811505 0.11045245718849461} (solve (quote x) (ex (= (+ (** 100 (+ (** x 2) (* -6 x) 1)) 5) 10))))
+  actual: (not (= #{5.889547542811505 0.11045245718849461} #{5.731804609835688 0.11045245718849461}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:107)
+expected: (= #{0 0.6931471805599453} (solve (quote x) (ex (= (+ (exp (* 2 x)) (* -3 (exp x)) 2) 0))))
+  actual: (not (= #{0 0.6931471805599453} #{0 1.0377561013768142}))
+--
+Ran 66 tests containing 212 assertions.
+14 failures, 1 errors.
+Tests failed.
+
+
+====================================
+Mutant 15: Arithmetic Operator Replacement
+------------------------------------
+Diff Result for Mutant 15:
+------------------------------------
+*** /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.original.clj	2014-02-22 13:28:45.000000000 -0800
+--- /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.rmb6.15.clj	2014-02-22 14:46:46.000000000 -0800
+***************
+*** 100,106 ****
+          b (to-expression (to-sexp (coef poly 1)))
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+!           [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+--- 100,106 ----
+          b (to-expression (to-sexp (coef poly 1)))
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+!           [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (+ 4 a c)))) (- 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+------------------------------------
+Test Results for Mutant 15:
+------------------------------------
+FAIL in (test-solve) (test_core.clj:146)
+expected: (= (quote #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))}) (solve (quote #{x}) (ex (= (+ (** x 2) (* a x) 1) 0))))
+  actual: (not (= #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))} #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (+ (- a) (sqrt (+ (** a 2) -6)))}))
+--
+ERROR in (test-solve) (Numbers.java:156)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve (quote [x y]) (ex (= (+ (** x 2) (** y 2)) 1)) (ex (= (+ x y) a))))
+  actual: java.lang.ArithmeticException: Divide by zero
+--
+FAIL in (test-solve) (test_core.clj:155)
+expected: (= (quote #{0 -1 1}) (solve (quote x) (ex (= (- (** x 4) (** x 2)) 0))))
+  actual: (not (= #{0 -1 1} #{0 -1}))
+--
+FAIL in (test-solve) (test_core.clj:157)
+expected: (= (quote #{1 3}) (solve (quote x) (ex (= (+ (** 2 (* 2 x)) (- (* 5 (** 2 (+ x 1)))) 16) 0))))
+  actual: (not (= #{1 3} #{1 4.239412891389382}))
+--
+FAIL in (test-solve-log) (test_solve.clj:111)
+expected: (= #{6} (solve (quote x) (ex (= (+ (log (- x 2)) (log (- (* 2 x) 3))) (* 2 (log x))))))
+  actual: (not (= #{6} #{}))
+--
+FAIL in (test-solve-log) (test_solve.clj:114)
+expected: (= #{16.168643024342963 -10.168643024342964} (solve (quote x) (ex (= (log (- (** x 2) (* 6 x) 16)) 5))))
+  actual: (not (= #{16.168643024342963 -10.168643024342964} #{19.979025685024567 -10.168643024342964}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:84)
+expected: (= #{0.7588723439378913 -0.6588723439378913} (solve (quote x) (ex (= (/ (- (* 2 x) 1) (+ x 1)) (+ (/ (* 2 x) (- x 1)) (/ 5 x))))))
+  actual: (not (= #{0.7588723439378913 -0.6588723439378913} #{0.7588723439378913}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:88)
+expected: (= #{-3.424428900898052 6.424428900898052} (solve (quote x) (ex (= (+ (/ (- (** x 2) 8) (- (** x 2) 4)) (/ 2 (+ x 2))) (/ 5 (- x 2))))))
+  actual: (not (= #{-3.424428900898052 6.424428900898052} #{-3.424428900898052}))
+--
+FAIL in (test-solve-abs) (test_solve.clj:101)
+expected: (= #{-3 1.7320508075688772} (solve (quote x) (ex (= (abs x) (+ (** x 2) x -3)))))
+  actual: (not (= #{-3 1.7320508075688772} #{1.7320508075688772}))
+--
+ERROR in (test-solve-system) (Numbers.java:156)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve-system (quote [x y]) #{(ex (= (+ x y) a)) (ex (= (+ (** x 2) (** y 2)) 1))}))
+  actual: java.lang.ArithmeticException: Divide by zero
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:57)
+expected: (= #{1 -4.2444444444444445} (solve (quote x) (ex (= (+ (sqrt (+ x 8)) (sqrt (+ x 15))) (sqrt (+ (* 9 x) 40))))))
+  actual: (not (= #{1 -4.2444444444444445} #{1 5.467239528298407}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:60)
+expected: (= #{1 -0.017994858611825194} (solve (quote x) (ex (= (+ (sqrt (+ (* 5 x) 4)) (sqrt (+ (* 7 x) 2))) (sqrt (+ (* 35 x) 1))))))
+  actual: (not (= #{1 -0.017994858611825194} #{1 0.004814730788744744}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:65)
+expected: (= #{5 0.39167589808513964} (solve (quote x) (ex (= (- (* 7 (sqrt (- (* 2 x) 1))) (* 8 (sqrt (- x 1)))) (* 10 (sqrt (/ (- x 4) 4)))))))
+  actual: (not (= #{5 0.39167589808513964} #{0.39167589808513964}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:70)
+expected: (= #{8.165253628132167 4.890301927423389} (solve (quote x) (ex (= (- (sqrt (- (* 9 x) 14)) (sqrt (+ (* 3 x) 6))) (sqrt (/ (- (* 6 x) 25) 5))))))
+  actual: (not (= #{8.165253628132167 4.890301927423389} #{8.165253628132167 0.3506957002154779}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:105)
+expected: (= #{5.889547542811505 0.11045245718849461} (solve (quote x) (ex (= (+ (** 100 (+ (** x 2) (* -6 x) 1)) 5) 10))))
+  actual: (not (= #{5.889547542811505 0.11045245718849461} #{11.509036667346479 0.11045245718849461}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:107)
+expected: (= #{0 0.6931471805599453} (solve (quote x) (ex (= (+ (exp (* 2 x)) (* -3 (exp x)) 2) 0))))
+  actual: (not (= #{0 0.6931471805599453} #{0 1.4848296896213304}))
+--
+Ran 66 tests containing 212 assertions.
+14 failures, 2 errors.
+Tests failed.
+
+
+====================================
+Mutant 16: Arithmetic Operator Replacement
+------------------------------------
+Diff Result for Mutant 16:
+------------------------------------
+*** /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.original.clj	2014-02-22 13:28:45.000000000 -0800
+--- /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.rmb6.16.clj	2014-02-22 14:46:54.000000000 -0800
+***************
+*** 101,107 ****
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+!            (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+    (let [first-not-null
+--- 101,107 ----
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+!            (ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+    (let [first-not-null
+------------------------------------
+Test Results for Mutant 16:
+------------------------------------
+FAIL in (test-solve) (test_core.clj:146)
+expected: (= (quote #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))}) (solve (quote #{x}) (ex (= (+ (** x 2) (* a x) 1) 0))))
+  actual: (not (= #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))} #{(* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))}))
+--
+FAIL in (test-solve) (test_core.clj:149)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve (quote [x y]) (ex (= (+ (** x 2) (** y 2)) 1)) (ex (= (+ x y) a))))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}))
+--
+FAIL in (test-solve) (test_core.clj:155)
+expected: (= (quote #{0 -1 1}) (solve (quote x) (ex (= (- (** x 4) (** x 2)) 0))))
+  actual: (not (= #{0 -1 1} #{0 1}))
+--
+FAIL in (test-solve) (test_core.clj:157)
+expected: (= (quote #{1 3}) (solve (quote x) (ex (= (+ (** 2 (* 2 x)) (- (* 5 (** 2 (+ x 1)))) 16) 0))))
+  actual: (not (= #{1 3} #{3}))
+--
+FAIL in (test-solve-log) (test_solve.clj:114)
+expected: (= #{16.168643024342963 -10.168643024342964} (solve (quote x) (ex (= (log (- (** x 2) (* 6 x) 16)) 5))))
+  actual: (not (= #{16.168643024342963 -10.168643024342964} #{16.168643024342963}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:84)
+expected: (= #{0.7588723439378913 -0.6588723439378913} (solve (quote x) (ex (= (/ (- (* 2 x) 1) (+ x 1)) (+ (/ (* 2 x) (- x 1)) (/ 5 x))))))
+  actual: (not (= #{0.7588723439378913 -0.6588723439378913} #{-0.6588723439378913}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:88)
+expected: (= #{-3.424428900898052 6.424428900898052} (solve (quote x) (ex (= (+ (/ (- (** x 2) 8) (- (** x 2) 4)) (/ 2 (+ x 2))) (/ 5 (- x 2))))))
+  actual: (not (= #{-3.424428900898052 6.424428900898052} #{6.424428900898052}))
+--
+FAIL in (test-solve-abs) (test_solve.clj:101)
+expected: (= #{-3 1.7320508075688772} (solve (quote x) (ex (= (abs x) (+ (** x 2) x -3)))))
+  actual: (not (= #{-3 1.7320508075688772} #{-3}))
+--
+FAIL in (test-solve-system) (test_solve.clj:46)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve-system (quote [x y]) #{(ex (= (+ x y) a)) (ex (= (+ (** x 2) (** y 2)) 1))}))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:57)
+expected: (= #{1 -4.2444444444444445} (solve (quote x) (ex (= (+ (sqrt (+ x 8)) (sqrt (+ x 15))) (sqrt (+ (* 9 x) 40))))))
+  actual: (not (= #{1 -4.2444444444444445} #{-4.2444444444444445}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:60)
+expected: (= #{1 -0.017994858611825194} (solve (quote x) (ex (= (+ (sqrt (+ (* 5 x) 4)) (sqrt (+ (* 7 x) 2))) (sqrt (+ (* 35 x) 1))))))
+  actual: (not (= #{1 -0.017994858611825194} #{-0.017994858611825194}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:65)
+expected: (= #{5 0.39167589808513964} (solve (quote x) (ex (= (- (* 7 (sqrt (- (* 2 x) 1))) (* 8 (sqrt (- x 1)))) (* 10 (sqrt (/ (- x 4) 4)))))))
+  actual: (not (= #{5 0.39167589808513964} #{5}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:70)
+expected: (= #{8.165253628132167 4.890301927423389} (solve (quote x) (ex (= (- (sqrt (- (* 9 x) 14)) (sqrt (+ (* 3 x) 6))) (sqrt (/ (- (* 6 x) 25) 5))))))
+  actual: (not (= #{8.165253628132167 4.890301927423389} #{4.890301927423389}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:105)
+expected: (= #{5.889547542811505 0.11045245718849461} (solve (quote x) (ex (= (+ (** 100 (+ (** x 2) (* -6 x) 1)) 5) 10))))
+  actual: (not (= #{5.889547542811505 0.11045245718849461} #{5.889547542811505}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:107)
+expected: (= #{0 0.6931471805599453} (solve (quote x) (ex (= (+ (exp (* 2 x)) (* -3 (exp x)) 2) 0))))
+  actual: (not (= #{0 0.6931471805599453} #{0.6931471805599453}))
+--
+Ran 66 tests containing 212 assertions.
+15 failures, 0 errors.
+Tests failed.
+
+
+====================================
+Mutant 17: Arithmetic Operator Replacement
+------------------------------------
+Diff Result for Mutant 17:
+------------------------------------
+*** /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.original.clj	2014-02-22 13:28:45.000000000 -0800
+--- /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.rmb6.17.clj	2014-02-22 14:47:03.000000000 -0800
+***************
+*** 101,107 ****
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+!            (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+    (let [first-not-null
+--- 101,107 ----
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+!            (ce `= v (ex' (/ (- (+ b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+    (let [first-not-null
+------------------------------------
+Test Results for Mutant 17:
+------------------------------------
+FAIL in (test-solve) (test_core.clj:146)
+expected: (= (quote #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))}) (solve (quote #{x}) (ex (= (+ (** x 2) (* a x) 1) 0))))
+  actual: (not (= #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))} #{(* 1/2 (+ a (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))}))
+--
+FAIL in (test-solve) (test_core.clj:149)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve (quote [x y]) (ex (= (+ (** x 2) (** y 2)) 1)) (ex (= (+ x y) a))))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))} {y (+ (* a 3/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* -1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))}}))
+--
+FAIL in (test-solve) (test_core.clj:157)
+expected: (= (quote #{1 3}) (solve (quote x) (ex (= (+ (** 2 (* 2 x)) (- (* 5 (** 2 (+ x 1)))) 16) 0))))
+  actual: (not (= #{1 3} #{3}))
+--
+FAIL in (test-solve-log) (test_solve.clj:114)
+expected: (= #{16.168643024342963 -10.168643024342964} (solve (quote x) (ex (= (log (- (** x 2) (* 6 x) 16)) 5))))
+  actual: (not (= #{16.168643024342963 -10.168643024342964} #{16.168643024342963 -16.168643024342963}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:84)
+expected: (= #{0.7588723439378913 -0.6588723439378913} (solve (quote x) (ex (= (/ (- (* 2 x) 1) (+ x 1)) (+ (/ (* 2 x) (- x 1)) (/ 5 x))))))
+  actual: (not (= #{0.7588723439378913 -0.6588723439378913} #{-0.6588723439378913}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:88)
+expected: (= #{-3.424428900898052 6.424428900898052} (solve (quote x) (ex (= (+ (/ (- (** x 2) 8) (- (** x 2) 4)) (/ 2 (+ x 2))) (/ 5 (- x 2))))))
+  actual: (not (= #{-3.424428900898052 6.424428900898052} #{6.424428900898052}))
+--
+FAIL in (test-solve-system) (test_solve.clj:46)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve-system (quote [x y]) #{(ex (= (+ x y) a)) (ex (= (+ (** x 2) (** y 2)) 1))}))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))} {y (+ (* a 3/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* -1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))}}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:57)
+expected: (= #{1 -4.2444444444444445} (solve (quote x) (ex (= (+ (sqrt (+ x 8)) (sqrt (+ x 15))) (sqrt (+ (* 9 x) 40))))))
+  actual: (not (= #{1 -4.2444444444444445} #{-4.2444444444444445 4.2444444444444445}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:60)
+expected: (= #{1 -0.017994858611825194} (solve (quote x) (ex (= (+ (sqrt (+ (* 5 x) 4)) (sqrt (+ (* 7 x) 2))) (sqrt (+ (* 35 x) 1))))))
+  actual: (not (= #{1 -0.017994858611825194} #{-0.017994858611825194 0.017994858611825194}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:65)
+expected: (= #{5 0.39167589808513964} (solve (quote x) (ex (= (- (* 7 (sqrt (- (* 2 x) 1))) (* 8 (sqrt (- x 1)))) (* 10 (sqrt (/ (- x 4) 4)))))))
+  actual: (not (= #{5 0.39167589808513964} #{-5 5}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:70)
+expected: (= #{8.165253628132167 4.890301927423389} (solve (quote x) (ex (= (- (sqrt (- (* 9 x) 14)) (sqrt (+ (* 3 x) 6))) (sqrt (/ (- (* 6 x) 25) 5))))))
+  actual: (not (= #{8.165253628132167 4.890301927423389} #{4.890301927423389 -4.890301927423389}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:105)
+expected: (= #{5.889547542811505 0.11045245718849461} (solve (quote x) (ex (= (+ (** 100 (+ (** x 2) (* -6 x) 1)) 5) 10))))
+  actual: (not (= #{5.889547542811505 0.11045245718849461} #{-5.889547542811505 5.889547542811505}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:107)
+expected: (= #{0 0.6931471805599453} (solve (quote x) (ex (= (+ (exp (* 2 x)) (* -3 (exp x)) 2) 0))))
+  actual: (not (= #{0 0.6931471805599453} #{0.6931471805599453}))
+--
+Ran 66 tests containing 212 assertions.
+13 failures, 0 errors.
+Tests failed.
+
+
+====================================
+Mutant 18: Arithmetic Operator Replacement
+------------------------------------
+Diff Result for Mutant 18:
+------------------------------------
+*** /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.original.clj	2014-02-22 13:28:45.000000000 -0800
+--- /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.rmb6.18.clj	2014-02-22 14:47:12.000000000 -0800
+***************
+*** 101,107 ****
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+!            (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+    (let [first-not-null
+--- 101,107 ----
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+!            (ce `= v (ex' (/ (- (- b) (sqrt (+ (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+    (let [first-not-null
+------------------------------------
+Test Results for Mutant 18:
+------------------------------------
+FAIL in (test-solve) (test_core.clj:146)
+expected: (= (quote #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))}) (solve (quote #{x}) (ex (= (+ (** x 2) (* a x) 1) 0))))
+  actual: (not (= #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))} #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) 4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))}))
+--
+FAIL in (test-solve) (test_core.clj:149)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve (quote [x y]) (ex (= (+ (** x 2) (** y 2)) 1)) (ex (= (+ x y) a))))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))} {y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* 12.0 (** a 2)) -8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* 12.0 (** a 2)) -8))) 1/4))}}))
+--
+FAIL in (test-solve) (test_core.clj:155)
+expected: (= (quote #{0 -1 1}) (solve (quote x) (ex (= (- (** x 4) (** x 2)) 0))))
+  actual: (not (= #{0 -1 1} #{0 1}))
+--
+FAIL in (test-solve) (test_core.clj:157)
+expected: (= (quote #{1 3}) (solve (quote x) (ex (= (+ (** 2 (* 2 x)) (- (* 5 (** 2 (+ x 1)))) 16) 0))))
+  actual: (not (= #{1 3} #{3}))
+--
+FAIL in (test-solve-log) (test_solve.clj:114)
+expected: (= #{16.168643024342963 -10.168643024342964} (solve (quote x) (ex (= (log (- (** x 2) (* 6 x) 16)) 5))))
+  actual: (not (= #{16.168643024342963 -10.168643024342964} #{16.168643024342963}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:84)
+expected: (= #{0.7588723439378913 -0.6588723439378913} (solve (quote x) (ex (= (/ (- (* 2 x) 1) (+ x 1)) (+ (/ (* 2 x) (- x 1)) (/ 5 x))))))
+  actual: (not (= #{0.7588723439378913 -0.6588723439378913} #{-0.6588723439378913}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:88)
+expected: (= #{-3.424428900898052 6.424428900898052} (solve (quote x) (ex (= (+ (/ (- (** x 2) 8) (- (** x 2) 4)) (/ 2 (+ x 2))) (/ 5 (- x 2))))))
+  actual: (not (= #{-3.424428900898052 6.424428900898052} #{6.424428900898052}))
+--
+FAIL in (test-solve-abs) (test_solve.clj:101)
+expected: (= #{-3 1.7320508075688772} (solve (quote x) (ex (= (abs x) (+ (** x 2) x -3)))))
+  actual: (not (= #{-3 1.7320508075688772} #{-3}))
+--
+FAIL in (test-solve-system) (test_solve.clj:46)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve-system (quote [x y]) #{(ex (= (+ x y) a)) (ex (= (+ (** x 2) (** y 2)) 1))}))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))} {y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* 12.0 (** a 2)) -8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* 12.0 (** a 2)) -8))) 1/4))}}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:57)
+expected: (= #{1 -4.2444444444444445} (solve (quote x) (ex (= (+ (sqrt (+ x 8)) (sqrt (+ x 15))) (sqrt (+ (* 9 x) 40))))))
+  actual: (not (= #{1 -4.2444444444444445} #{-4.2444444444444445}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:60)
+expected: (= #{1 -0.017994858611825194} (solve (quote x) (ex (= (+ (sqrt (+ (* 5 x) 4)) (sqrt (+ (* 7 x) 2))) (sqrt (+ (* 35 x) 1))))))
+  actual: (not (= #{1 -0.017994858611825194} #{-0.017994858611825194 0.963325199642116}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:65)
+expected: (= #{5 0.39167589808513964} (solve (quote x) (ex (= (- (* 7 (sqrt (- (* 2 x) 1))) (* 8 (sqrt (- x 1)))) (* 10 (sqrt (/ (- x 4) 4)))))))
+  actual: (not (= #{5 0.39167589808513964} #{5 -0.34158229483606567}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:70)
+expected: (= #{8.165253628132167 4.890301927423389} (solve (quote x) (ex (= (- (sqrt (- (* 9 x) 14)) (sqrt (+ (* 3 x) 6))) (sqrt (/ (- (* 6 x) 25) 5))))))
+  actual: (not (= #{8.165253628132167 4.890301927423389} #{15.613064689681275 4.890301927423389}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:105)
+expected: (= #{5.889547542811505 0.11045245718849461} (solve (quote x) (ex (= (+ (** 100 (+ (** x 2) (* -6 x) 1)) 5) 10))))
+  actual: (not (= #{5.889547542811505 0.11045245718849461} #{5.889547542811505 -0.10652780412987628}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:107)
+expected: (= #{0 0.6931471805599453} (solve (quote x) (ex (= (+ (exp (* 2 x)) (* -3 (exp x)) 2) 0))))
+  actual: (not (= #{0 0.6931471805599453} #{0.6931471805599453}))
+--
+Ran 66 tests containing 212 assertions.
+15 failures, 0 errors.
+Tests failed.
+
+
+====================================
+Mutant 19: Arithmetic Operator Replacement
+------------------------------------
+Diff Result for Mutant 19:
+------------------------------------
+*** /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.original.clj	2014-02-22 13:28:45.000000000 -0800
+--- /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.rmb6.19.clj	2014-02-22 15:15:09.000000000 -0800
+***************
+*** 101,107 ****
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+!            (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+    (let [first-not-null
+--- 101,107 ----
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+!            (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (+ 2 a))))])))
+
+  (defn- try-factorise [x poly]
+    (let [first-not-null
+***************
+*** 953,956 ****
+    (or (and (not= expr (apply-rules [r] expr))
+             (apply-rules [r] expr))
+        (some #{true}
+!             (flatten (transform-expression [r] expr)))))
+--- 953,956 ----
+    (or (and (not= expr (apply-rules [r] expr))
+             (apply-rules [r] expr))
+        (some #{true}
+!             (flatten (transform-expression [r] expr)))))
+\ No newline at end of file
+------------------------------------
+Test Results for Mutant 19:
+------------------------------------
+FAIL in (test-solve) (test_core.clj:146)
+expected: (= (quote #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))}) (solve (quote #{x}) (ex (= (+ (** x 2) (* a x) 1) 0))))
+  actual: (not (= #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))} #{(* 1/3 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))}))
+--
+FAIL in (test-solve) (test_core.clj:155)
+expected: (= (quote #{0 -1 1}) (solve (quote x) (ex (= (- (** x 4) (** x 2)) 0))))
+  actual: (not (= #{0 -1 1} #{0 -0.6666666666666666 1}))
+--
+FAIL in (test-solve) (test_core.clj:157)
+expected: (= (quote #{1 3}) (solve (quote x) (ex (= (+ (** 2 (* 2 x)) (- (* 5 (** 2 (+ x 1)))) 16) 0))))
+  actual: (not (= #{1 3} #{3 0.4150374992788437}))
+--
+FAIL in (test-solve-log) (test_solve.clj:114)
+expected: (= #{16.168643024342963 -10.168643024342964} (solve (quote x) (ex (= (log (- (** x 2) (* 6 x) 16)) 5))))
+  actual: (not (= #{16.168643024342963 -10.168643024342964} #{16.168643024342963 -6.779095349561977}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:84)
+expected: (= #{0.7588723439378913 -0.6588723439378913} (solve (quote x) (ex (= (/ (- (* 2 x) 1) (+ x 1)) (+ (/ (* 2 x) (- x 1)) (/ 5 x))))))
+  actual: (not (= #{0.7588723439378913 -0.6588723439378913} #{-0.6588723439378913}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:88)
+expected: (= #{-3.424428900898052 6.424428900898052} (solve (quote x) (ex (= (+ (/ (- (** x 2) 8) (- (** x 2) 4)) (/ 2 (+ x 2))) (/ 5 (- x 2))))))
+  actual: (not (= #{-3.424428900898052 6.424428900898052} #{6.424428900898052}))
+--
+ERROR in (test-solve-fractions) (Numbers.java:156)
+expected: (= #{5} (solve (quote x) (ex (= (+ (/ 34 (+ (** x 2) (* -3 x) 7)) 5) (- (* 2 x) 3)))))
+  actual: java.lang.ArithmeticException: Divide by zero
+--
+FAIL in (test-solve-abs) (test_solve.clj:101)
+expected: (= #{-3 1.7320508075688772} (solve (quote x) (ex (= (abs x) (+ (** x 2) x -3)))))
+  actual: (not (= #{-3 1.7320508075688772} #{-3}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:57)
+expected: (= #{1 -4.2444444444444445} (solve (quote x) (ex (= (+ (sqrt (+ x 8)) (sqrt (+ x 15))) (sqrt (+ (* 9 x) 40))))))
+  actual: (not (= #{1 -4.2444444444444445} #{2.4324324324324325 -4.2444444444444445}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:60)
+expected: (= #{1 -0.017994858611825194} (solve (quote x) (ex (= (+ (sqrt (+ (* 5 x) 4)) (sqrt (+ (* 7 x) 2))) (sqrt (+ (* 35 x) 1))))))
+  actual: (not (= #{1 -0.017994858611825194} #{-0.017994858611825194 2.041994750656168}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:65)
+expected: (= #{5 0.39167589808513964} (solve (quote x) (ex (= (- (* 7 (sqrt (- (* 2 x) 1))) (* 8 (sqrt (- x 1)))) (* 10 (sqrt (/ (- x 4) 4)))))))
+  actual: (not (= #{5 0.39167589808513964} #{5 0.08605851979345945}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:70)
+expected: (= #{8.165253628132167 4.890301927423389} (solve (quote x) (ex (= (- (sqrt (- (* 9 x) 14)) (sqrt (+ (* 3 x) 6))) (sqrt (/ (- (* 6 x) 25) 5))))))
+  actual: (not (= #{8.165253628132167 4.890301927423389} #{4.890301927423389 220.4618479595689}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:105)
+expected: (= #{5.889547542811505 0.11045245718849461} (solve (quote x) (ex (= (+ (** 100 (+ (** x 2) (* -6 x) 1)) 5) 10))))
+  actual: (not (= #{5.889547542811505 0.11045245718849461} #{5.889547542811505 0.0736349714589964}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:107)
+expected: (= #{0 0.6931471805599453} (solve (quote x) (ex (= (+ (exp (* 2 x)) (* -3 (exp x)) 2) 0))))
+  actual: (not (= #{0 0.6931471805599453} #{0.6931471805599453 -0.40546510810816444}))
+--
+Ran 66 tests containing 212 assertions.
+13 failures, 1 errors.
+Tests failed.
+
+
+====================================
+Mutant 20: Arithmetic Operator Replacement
+------------------------------------
+Diff Result for Mutant 20:
+------------------------------------
+*** /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.original.clj	2014-02-22 13:28:45.000000000 -0800
+--- /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.rmb6.20.clj	2014-02-22 14:51:40.000000000 -0800
+***************
+*** 101,107 ****
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+!            (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+    (let [first-not-null
+--- 101,107 ----
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+!            (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (/ 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+    (let [first-not-null
+------------------------------------
+Test Results for Mutant 20:
+------------------------------------
+FAIL in (test-solve) (test_core.clj:149)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve (quote [x y]) (ex (= (+ (** x 2) (** y 2)) 1)) (ex (= (+ x y) a))))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))} {y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* 4.0 (** a 2)) (* -2N (/ (+ -1 (** a 2))))))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* 4.0 (** a 2)) (* -2N (/ (+ -1 (** a 2))))))) 1/4))}}))
+--
+ERROR in (test-solve) (Numbers.java:156)
+expected: (= (quote #{0 -1 1}) (solve (quote x) (ex (= (- (** x 4) (** x 2)) 0))))
+  actual: java.lang.ArithmeticException: Divide by zero
+--
+FAIL in (test-solve) (test_core.clj:157)
+expected: (= (quote #{1 3}) (solve (quote x) (ex (= (+ (** 2 (* 2 x)) (- (* 5 (** 2 (+ x 1)))) 16) 0))))
+  actual: (not (= #{1 3} #{3 -7.32102556398161}))
+--
+FAIL in (test-solve-log) (test_solve.clj:114)
+expected: (= #{16.168643024342963 -10.168643024342964} (solve (quote x) (ex (= (log (- (** x 2) (* 6 x) 16)) 5))))
+  actual: (not (= #{16.168643024342963 -10.168643024342964} #{16.168643024342963 -0.0010135351609128485}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:84)
+expected: (= #{0.7588723439378913 -0.6588723439378913} (solve (quote x) (ex (= (/ (- (* 2 x) 1) (+ x 1)) (+ (/ (* 2 x) (- x 1)) (/ 5 x))))))
+  actual: (not (= #{0.7588723439378913 -0.6588723439378913} #{-0.6588723439378913}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:88)
+expected: (= #{-3.424428900898052 6.424428900898052} (solve (quote x) (ex (= (+ (/ (- (** x 2) 8) (- (** x 2) 4)) (/ 2 (+ x 2))) (/ 5 (- x 2))))))
+  actual: (not (= #{-3.424428900898052 6.424428900898052} #{6.424428900898052}))
+--
+FAIL in (test-solve-abs) (test_solve.clj:101)
+expected: (= #{-3 1.7320508075688772} (solve (quote x) (ex (= (abs x) (+ (** x 2) x -3)))))
+  actual: (not (= #{-3 1.7320508075688772} #{-3}))
+--
+FAIL in (test-solve-system) (test_solve.clj:46)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve-system (quote [x y]) #{(ex (= (+ x y) a)) (ex (= (+ (** x 2) (** y 2)) 1))}))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))} {y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* 4.0 (** a 2)) (* -2N (/ (+ -1 (** a 2))))))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* 4.0 (** a 2)) (* -2N (/ (+ -1 (** a 2))))))) 1/4))}}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:57)
+expected: (= #{1 -4.2444444444444445} (solve (quote x) (ex (= (+ (sqrt (+ x 8)) (sqrt (+ x 15))) (sqrt (+ (* 9 x) 40))))))
+  actual: (not (= #{1 -4.2444444444444445} #{-4.2444444444444445 4.533442459988793E-6}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:60)
+expected: (= #{1 -0.017994858611825194} (solve (quote x) (ex (= (+ (sqrt (+ (* 5 x) 4)) (sqrt (+ (* 7 x) 2))) (sqrt (+ (* 35 x) 1))))))
+  actual: (not (= #{1 -0.017994858611825194} #{-0.017994858611825194 0.982005774060853}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:65)
+expected: (= #{5 0.39167589808513964} (solve (quote x) (ex (= (- (* 7 (sqrt (- (* 2 x) 1))) (* 8 (sqrt (- x 1)))) (* 10 (sqrt (/ (- x 4) 4)))))))
+  actual: (not (= #{5 0.39167589808513964} #{5}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:70)
+expected: (= #{8.165253628132167 4.890301927423389} (solve (quote x) (ex (= (- (sqrt (- (* 9 x) 14)) (sqrt (+ (* 3 x) 6))) (sqrt (/ (- (* 6 x) 25) 5))))))
+  actual: (not (= #{8.165253628132167 4.890301927423389} #{13.055467432972844 4.890301927423389}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:105)
+expected: (= #{5.889547542811505 0.11045245718849461} (solve (quote x) (ex (= (+ (** 100 (+ (** x 2) (* -6 x) 1)) 5) 10))))
+  actual: (not (= #{5.889547542811505 0.11045245718849461} #{5.889547542811505 0.2681953901643115}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:107)
+expected: (= #{0 0.6931471805599453} (solve (quote x) (ex (= (+ (exp (* 2 x)) (* -3 (exp x)) 2) 0))))
+  actual: (not (= #{0 0.6931471805599453} #{0.6931471805599453 -1.73090328193676}))
+--
+Ran 66 tests containing 212 assertions.
+13 failures, 1 errors.
+Tests failed.
+
+
+====================================
+Mutant 21: Scalar Variable Replacement
+------------------------------------
+Diff Result for Mutant 21:
+------------------------------------
+*** /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.original.clj	2014-02-22 13:28:45.000000000 -0800
+--- /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.rmb6.21.clj	2014-02-22 15:04:44.000000000 -0800
+***************
+*** 100,106 ****
+          b (to-expression (to-sexp (coef poly 1)))
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+!           [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+--- 100,106 ----
+          b (to-expression (to-sexp (coef poly 1)))
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+!           [(ce `= v (ex' (/ (+ (- a) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+------------------------------------
+Test Results for Mutant 21:
+------------------------------------
+FAIL in (test-solve) (test_core.clj:146)
+expected: (= (quote #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))}) (solve (quote #{x}) (ex (= (+ (** x 2) (* a x) 1) 0))))
+  actual: (not (= #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))} #{(+ -1/2 (* (sqrt (+ (** a 2) -4)) 1/2)) (* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4)))))}))
+--
+FAIL in (test-solve) (test_core.clj:149)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve (quote [x y]) (ex (= (+ (** x 2) (** y 2)) 1)) (ex (= (+ x y) a))))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ 1/2 (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8))) a), x (+ -1/2 (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))} {y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))}}))
+--
+FAIL in (test-solve) (test_core.clj:155)
+expected: (= (quote #{0 -1 1}) (solve (quote x) (ex (= (- (** x 4) (** x 2)) 0))))
+  actual: (not (= #{0 -1 1} #{0 -1 0.5 -0.5}))
+--
+FAIL in (test-solve) (test_core.clj:157)
+expected: (= (quote #{1 3}) (solve (quote x) (ex (= (+ (** 2 (* 2 x)) (- (* 5 (** 2 (+ x 1)))) 16) 0))))
+  actual: (not (= #{1 3} #{1 1.3219280948873624}))
+--
+FAIL in (test-solve-log) (test_solve.clj:111)
+expected: (= #{6} (solve (quote x) (ex (= (+ (log (- x 2)) (log (- (* 2 x) 3))) (* 2 (log x))))))
+  actual: (not (= #{6} #{}))
+--
+FAIL in (test-solve-log) (test_solve.clj:114)
+expected: (= #{16.168643024342963 -10.168643024342964} (solve (quote x) (ex (= (log (- (** x 2) (* 6 x) 16)) 5))))
+  actual: (not (= #{16.168643024342963 -10.168643024342964} #{-10.168643024342964 12.668643024342964}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:84)
+expected: (= #{0.7588723439378913 -0.6588723439378913} (solve (quote x) (ex (= (/ (- (* 2 x) 1) (+ x 1)) (+ (/ (* 2 x) (- x 1)) (/ 5 x))))))
+  actual: (not (= #{0.7588723439378913 -0.6588723439378913} #{0.7588723439378913}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:88)
+expected: (= #{-3.424428900898052 6.424428900898052} (solve (quote x) (ex (= (+ (/ (- (** x 2) 8) (- (** x 2) 4)) (/ 2 (+ x 2))) (/ 5 (- x 2))))))
+  actual: (not (= #{-3.424428900898052 6.424428900898052} #{-3.424428900898052}))
+--
+FAIL in (test-solve-abs) (test_solve.clj:101)
+expected: (= #{-3 1.7320508075688772} (solve (quote x) (ex (= (abs x) (+ (** x 2) x -3)))))
+  actual: (not (= #{-3 1.7320508075688772} #{1.7320508075688772}))
+--
+FAIL in (test-solve-system) (test_solve.clj:46)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve-system (quote [x y]) #{(ex (= (+ x y) a)) (ex (= (+ (** x 2) (** y 2)) 1))}))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ 1/2 (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8))) a), x (+ -1/2 (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))} {y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))}}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:57)
+expected: (= #{1 -4.2444444444444445} (solve (quote x) (ex (= (+ (sqrt (+ x 8)) (sqrt (+ x 15))) (sqrt (+ (* 9 x) 40))))))
+  actual: (not (= #{1 -4.2444444444444445} #{1 -3.1222222222222222}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:60)
+expected: (= #{1 -0.017994858611825194} (solve (quote x) (ex (= (+ (sqrt (+ (* 5 x) 4)) (sqrt (+ (* 7 x) 2))) (sqrt (+ (* 35 x) 1))))))
+  actual: (not (= #{1 -0.017994858611825194} #{1 -1.0089974293059125}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:65)
+expected: (= #{5 0.39167589808513964} (solve (quote x) (ex (= (- (* 7 (sqrt (- (* 2 x) 1))) (* 8 (sqrt (- x 1)))) (* 10 (sqrt (/ (- x 4) 4)))))))
+  actual: (not (= #{5 0.39167589808513964} #{1.8041620509574294 0.39167589808513964}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:70)
+expected: (= #{8.165253628132167 4.890301927423389} (solve (quote x) (ex (= (- (sqrt (- (* 9 x) 14)) (sqrt (+ (* 3 x) 6))) (sqrt (/ (- (* 6 x) 25) 5))))))
+  actual: (not (= #{8.165253628132167 4.890301927423389} #{8.165253628132167 -2.13747585035439}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:105)
+expected: (= #{5.889547542811505 0.11045245718849461} (solve (quote x) (ex (= (+ (** 100 (+ (** x 2) (* -6 x) 1)) 5) 10))))
+  actual: (not (= #{5.889547542811505 0.11045245718849461} #{2.3895475428115054 0.11045245718849461}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:107)
+expected: (= #{0 0.6931471805599453} (solve (quote x) (ex (= (+ (exp (* 2 x)) (* -3 (exp x)) 2) 0))))
+  actual: (not (= #{0 0.6931471805599453} #{0 -Infinity}))
+--
+Ran 66 tests containing 212 assertions.
+16 failures, 0 errors.
+Tests failed.
+
+
+====================================
+Mutant 22: Scalar Variable Replacement
+------------------------------------
+Diff Result for Mutant 22:
+------------------------------------
+*** /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.original.clj	2014-02-22 13:28:45.000000000 -0800
+--- /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.rmb6.22.clj	2014-02-22 15:04:52.000000000 -0800
+***************
+*** 100,106 ****
+          b (to-expression (to-sexp (coef poly 1)))
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+!           [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+--- 100,106 ----
+          b (to-expression (to-sexp (coef poly 1)))
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+!           [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** a 2) (* 4 a c)))) (* 2 a))))
+             (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+------------------------------------
+Test Results for Mutant 22:
+------------------------------------
+FAIL in (test-solve) (test_core.clj:146)
+expected: (= (quote #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))}) (solve (quote #{x}) (ex (= (+ (** x 2) (* a x) 1) 0))))
+  actual: (not (= #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))} #{(+ (* (- a) 1/2) NaN) (* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4)))))}))
+--
+FAIL in (test-solve) (test_core.clj:149)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve (quote [x y]) (ex (= (+ (** x 2) (** y 2)) 1)) (ex (= (+ x y) a))))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ 12.0 (* -8 (** a 2)))))), x (+ (* 1/2 a) (* (sqrt (+ 12.0 (* -8 (** a 2)))) 1/4))}}))
+--
+FAIL in (test-solve) (test_core.clj:155)
+expected: (= (quote #{0 -1 1}) (solve (quote x) (ex (= (- (** x 4) (** x 2)) 0))))
+  actual: (not (= #{0 -1 1} #{0 -1 0.5 1.118033988749895}))
+--
+FAIL in (test-solve) (test_core.clj:157)
+expected: (= (quote #{1 3}) (solve (quote x) (ex (= (+ (** 2 (* 2 x)) (- (* 5 (** 2 (+ x 1)))) 16) 0))))
+  actual: (not (= #{1 3} #{1}))
+--
+FAIL in (test-solve-log) (test_solve.clj:111)
+expected: (= #{6} (solve (quote x) (ex (= (+ (log (- x 2)) (log (- (* 2 x) 3))) (* 2 (log x))))))
+  actual: (not (= #{6} #{}))
+--
+FAIL in (test-solve-log) (test_solve.clj:114)
+expected: (= #{16.168643024342963 -10.168643024342964} (solve (quote x) (ex (= (log (- (** x 2) (* 6 x) 16)) 5))))
+  actual: (not (= #{16.168643024342963 -10.168643024342964} #{-10.168643024342964 15.83211436601843}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:84)
+expected: (= #{0.7588723439378913 -0.6588723439378913} (solve (quote x) (ex (= (/ (- (* 2 x) 1) (+ x 1)) (+ (/ (* 2 x) (- x 1)) (/ 5 x))))))
+  actual: (not (= #{0.7588723439378913 -0.6588723439378913} #{0.7588723439378913}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:88)
+expected: (= #{-3.424428900898052 6.424428900898052} (solve (quote x) (ex (= (+ (/ (- (** x 2) 8) (- (** x 2) 4)) (/ 2 (+ x 2))) (/ 5 (- x 2))))))
+  actual: (not (= #{-3.424428900898052 6.424428900898052} #{-3.424428900898052}))
+--
+FAIL in (test-solve-abs) (test_solve.clj:101)
+expected: (= #{-3 1.7320508075688772} (solve (quote x) (ex (= (abs x) (+ (** x 2) x -3)))))
+  actual: (not (= #{-3 1.7320508075688772} #{1.7320508075688772}))
+--
+FAIL in (test-solve-system) (test_solve.clj:46)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve-system (quote [x y]) #{(ex (= (+ x y) a)) (ex (= (+ (** x 2) (** y 2)) 1))}))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ 12.0 (* -8 (** a 2)))))), x (+ (* 1/2 a) (* (sqrt (+ 12.0 (* -8 (** a 2)))) 1/4))}}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:57)
+expected: (= #{1 -4.2444444444444445} (solve (quote x) (ex (= (+ (sqrt (+ x 8)) (sqrt (+ x 15))) (sqrt (+ (* 9 x) 40))))))
+  actual: (not (= #{1 -4.2444444444444445} #{1 -3.742232704376602}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:60)
+expected: (= #{1 -0.017994858611825194} (solve (quote x) (ex (= (+ (sqrt (+ (* 5 x) 4)) (sqrt (+ (* 7 x) 2))) (sqrt (+ (* 35 x) 1))))))
+  actual: (not (= #{1 -0.017994858611825194} #{1 -0.026679627775036293}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:65)
+expected: (= #{5 0.39167589808513964} (solve (quote x) (ex (= (- (* 7 (sqrt (- (* 2 x) 1))) (* 8 (sqrt (- x 1)))) (* 10 (sqrt (/ (- x 4) 4)))))))
+  actual: (not (= #{5 0.39167589808513964} #{0.39167589808513964}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:70)
+expected: (= #{8.165253628132167 4.890301927423389} (solve (quote x) (ex (= (- (sqrt (- (* 9 x) 14)) (sqrt (+ (* 3 x) 6))) (sqrt (/ (- (* 6 x) 25) 5))))))
+  actual: (not (= #{8.165253628132167 4.890301927423389} #{8.165253628132167}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:105)
+expected: (= #{5.889547542811505 0.11045245718849461} (solve (quote x) (ex (= (+ (** 100 (+ (** x 2) (* -6 x) 1)) 5) 10))))
+  actual: (not (= #{5.889547542811505 0.11045245718849461} #{0.11045245718849461}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:107)
+expected: (= #{0 0.6931471805599453} (solve (quote x) (ex (= (+ (exp (* 2 x)) (* -3 (exp x)) 2) 0))))
+  actual: (not (= #{0 0.6931471805599453} #{0}))
+--
+Ran 66 tests containing 212 assertions.
+16 failures, 0 errors.
+Tests failed.
+
+
+====================================
+Mutant 23: Scalar Variable Replacement
+------------------------------------
+Diff Result for Mutant 23:
+------------------------------------
+*** /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.original.clj	2014-02-22 13:28:45.000000000 -0800
+--- /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.rmb6.23.clj	2014-02-22 15:05:04.000000000 -0800
+***************
+*** 101,107 ****
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+!            (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+    (let [first-not-null
+--- 101,107 ----
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+!            (ce `= v (ex' (/ (- (- b) (sqrt (- (** c 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+    (let [first-not-null
+------------------------------------
+Test Results for Mutant 23:
+------------------------------------
+FAIL in (test-solve) (test_core.clj:146)
+expected: (= (quote #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))}) (solve (quote #{x}) (ex (= (+ (** x 2) (* a x) 1) 0))))
+  actual: (not (= #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))} #{(+ (* (- a) 1/2) NaN) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))}))
+--
+FAIL in (test-solve) (test_core.clj:149)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve (quote [x y]) (ex (= (+ (** x 2) (** y 2)) 1)) (ex (= (+ x y) a))))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ 8 (* -8 (** a 2)) (** (+ -1 (** a 2)) 2)))))), x (+ (* 1/2 a) (* (- (sqrt (+ 8 (* -8 (** a 2)) (** (+ -1 (** a 2)) 2)))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}))
+--
+FAIL in (test-solve) (test_core.clj:155)
+expected: (= (quote #{0 -1 1}) (solve (quote x) (ex (= (- (** x 4) (** x 2)) 0))))
+  actual: (not (= #{0 -1 1} #{0 1 -1.118033988749895}))
+--
+FAIL in (test-solve) (test_core.clj:157)
+expected: (= (quote #{1 3}) (solve (quote x) (ex (= (+ (** 2 (* 2 x)) (- (* 5 (** 2 (+ x 1)))) 16) 0))))
+  actual: (not (= #{1 3} #{3}))
+--
+FAIL in (test-solve-log) (test_solve.clj:114)
+expected: (= #{16.168643024342963 -10.168643024342964} (solve (quote x) (ex (= (log (- (** x 2) (* 6 x) 16)) 5))))
+  actual: (not (= #{16.168643024342963 -10.168643024342964} #{16.168643024342963 -80.20057019410905}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:84)
+expected: (= #{0.7588723439378913 -0.6588723439378913} (solve (quote x) (ex (= (/ (- (* 2 x) 1) (+ x 1)) (+ (/ (* 2 x) (- x 1)) (/ 5 x))))))
+  actual: (not (= #{0.7588723439378913 -0.6588723439378913} #{-0.6588723439378913}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:88)
+expected: (= #{-3.424428900898052 6.424428900898052} (solve (quote x) (ex (= (+ (/ (- (** x 2) 8) (- (** x 2) 4)) (/ 2 (+ x 2))) (/ 5 (- x 2))))))
+  actual: (not (= #{-3.424428900898052 6.424428900898052} #{6.424428900898052}))
+--
+FAIL in (test-solve-abs) (test_solve.clj:101)
+expected: (= #{-3 1.7320508075688772} (solve (quote x) (ex (= (abs x) (+ (** x 2) x -3)))))
+  actual: (not (= #{-3 1.7320508075688772} #{-3}))
+--
+FAIL in (test-solve-system) (test_solve.clj:46)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve-system (quote [x y]) #{(ex (= (+ x y) a)) (ex (= (+ (** x 2) (** y 2)) 1))}))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ 8 (* -8 (** a 2)) (** (+ -1 (** a 2)) 2)))))), x (+ (* 1/2 a) (* (- (sqrt (+ 8 (* -8 (** a 2)) (** (+ -1 (** a 2)) 2)))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:57)
+expected: (= #{1 -4.2444444444444445} (solve (quote x) (ex (= (+ (sqrt (+ x 8)) (sqrt (+ x 15))) (sqrt (+ (* 9 x) 40))))))
+  actual: (not (= #{1 -4.2444444444444445} #{-4.2444444444444445 1.3355255028108426}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:60)
+expected: (= #{1 -0.017994858611825194} (solve (quote x) (ex (= (+ (sqrt (+ (* 5 x) 4)) (sqrt (+ (* 7 x) 2))) (sqrt (+ (* 35 x) 1))))))
+  actual: (not (= #{1 -0.017994858611825194} #{-0.017994858611825194 0.6254488884046893}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:65)
+expected: (= #{5 0.39167589808513964} (solve (quote x) (ex (= (- (* 7 (sqrt (- (* 2 x) 1))) (* 8 (sqrt (- x 1)))) (* 10 (sqrt (/ (- x 4) 4)))))))
+  actual: (not (= #{5 0.39167589808513964} #{5}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:70)
+expected: (= #{8.165253628132167 4.890301927423389} (solve (quote x) (ex (= (- (sqrt (- (* 9 x) 14)) (sqrt (+ (* 3 x) 6))) (sqrt (/ (- (* 6 x) 25) 5))))))
+  actual: (not (= #{8.165253628132167 4.890301927423389} #{25.466673236285168 4.890301927423389}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:105)
+expected: (= #{5.889547542811505 0.11045245718849461} (solve (quote x) (ex (= (+ (** 100 (+ (** x 2) (* -6 x) 1)) 5) 10))))
+  actual: (not (= #{5.889547542811505 0.11045245718849461} #{5.889547542811505}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:107)
+expected: (= #{0 0.6931471805599453} (solve (quote x) (ex (= (+ (exp (* 2 x)) (* -3 (exp x)) 2) 0))))
+  actual: (not (= #{0 0.6931471805599453} #{0.6931471805599453}))
+--
+Ran 66 tests containing 212 assertions.
+15 failures, 0 errors.
+Tests failed.
+
+
+====================================
+Mutant 24: Scalar Variable Replacement
+------------------------------------
+Diff Result for Mutant 24:
+------------------------------------
+*** /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.original.clj	2014-02-22 13:28:45.000000000 -0800
+--- /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.rmb6.24.clj	2014-02-22 15:05:15.000000000 -0800
+***************
+*** 101,107 ****
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+!            (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+    (let [first-not-null
+--- 101,107 ----
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+!            (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 c c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+    (let [first-not-null
+------------------------------------
+Test Results for Mutant 24:
+------------------------------------
+FAIL in (test-solve) (test_core.clj:149)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve (quote [x y]) (ex (= (+ (** x 2) (** y 2)) 1)) (ex (= (+ x y) a))))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))} {y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4 (+ (** a 4) 1)) (* 12.0 (** a 2))))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4 (+ (** a 4) 1)) (* 12.0 (** a 2))))) 1/4))}}))
+--
+FAIL in (test-solve) (test_core.clj:155)
+expected: (= (quote #{0 -1 1}) (solve (quote x) (ex (= (- (** x 4) (** x 2)) 0))))
+  actual: (not (= #{0 -1 1} #{0 1}))
+--
+FAIL in (test-solve) (test_core.clj:157)
+expected: (= (quote #{1 3}) (solve (quote x) (ex (= (+ (** 2 (* 2 x)) (- (* 5 (** 2 (+ x 1)))) 16) 0))))
+  actual: (not (= #{1 3} #{3}))
+--
+FAIL in (test-solve-log) (test_solve.clj:114)
+expected: (= #{16.168643024342963 -10.168643024342964} (solve (quote x) (ex (= (log (- (** x 2) (* 6 x) 16)) 5))))
+  actual: (not (= #{16.168643024342963 -10.168643024342964} #{16.168643024342963}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:84)
+expected: (= #{0.7588723439378913 -0.6588723439378913} (solve (quote x) (ex (= (/ (- (* 2 x) 1) (+ x 1)) (+ (/ (* 2 x) (- x 1)) (/ 5 x))))))
+  actual: (not (= #{0.7588723439378913 -0.6588723439378913} #{-0.6588723439378913}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:88)
+expected: (= #{-3.424428900898052 6.424428900898052} (solve (quote x) (ex (= (+ (/ (- (** x 2) 8) (- (** x 2) 4)) (/ 2 (+ x 2))) (/ 5 (- x 2))))))
+  actual: (not (= #{-3.424428900898052 6.424428900898052} #{6.424428900898052}))
+--
+FAIL in (test-solve-abs) (test_solve.clj:101)
+expected: (= #{-3 1.7320508075688772} (solve (quote x) (ex (= (abs x) (+ (** x 2) x -3)))))
+  actual: (not (= #{-3 1.7320508075688772} #{-3}))
+--
+FAIL in (test-solve-system) (test_solve.clj:46)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve-system (quote [x y]) #{(ex (= (+ x y) a)) (ex (= (+ (** x 2) (** y 2)) 1))}))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))} {y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4 (+ (** a 4) 1)) (* 12.0 (** a 2))))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4 (+ (** a 4) 1)) (* 12.0 (** a 2))))) 1/4))}}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:57)
+expected: (= #{1 -4.2444444444444445} (solve (quote x) (ex (= (+ (sqrt (+ x 8)) (sqrt (+ x 15))) (sqrt (+ (* 9 x) 40))))))
+  actual: (not (= #{1 -4.2444444444444445} #{-4.2444444444444445}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:60)
+expected: (= #{1 -0.017994858611825194} (solve (quote x) (ex (= (+ (sqrt (+ (* 5 x) 4)) (sqrt (+ (* 7 x) 2))) (sqrt (+ (* 35 x) 1))))))
+  actual: (not (= #{1 -0.017994858611825194} #{0.9816752818690035 -0.017994858611825194}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:65)
+expected: (= #{5 0.39167589808513964} (solve (quote x) (ex (= (- (* 7 (sqrt (- (* 2 x) 1))) (* 8 (sqrt (- x 1)))) (* 10 (sqrt (/ (- x 4) 4)))))))
+  actual: (not (= #{5 0.39167589808513964} #{5 0.8431933476745612}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:70)
+expected: (= #{8.165253628132167 4.890301927423389} (solve (quote x) (ex (= (- (sqrt (- (* 9 x) 14)) (sqrt (+ (* 3 x) 6))) (sqrt (/ (- (* 6 x) 25) 5))))))
+  actual: (not (= #{8.165253628132167 4.890301927423389} #{4.890301927423389}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:105)
+expected: (= #{5.889547542811505 0.11045245718849461} (solve (quote x) (ex (= (+ (** 100 (+ (** x 2) (* -6 x) 1)) 5) 10))))
+  actual: (not (= #{5.889547542811505 0.11045245718849461} #{5.889547542811505 0.07137741632766126}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:107)
+expected: (= #{0 0.6931471805599453} (solve (quote x) (ex (= (+ (exp (* 2 x)) (* -3 (exp x)) 2) 0))))
+  actual: (not (= #{0 0.6931471805599453} #{0.6931471805599453}))
+--
+Ran 66 tests containing 212 assertions.
+14 failures, 0 errors.
+Tests failed.
+
+
+====================================
+Mutant 25: Scalar Variable Replacement
+------------------------------------
+Diff Result for Mutant 25:
+------------------------------------
+*** /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.original.clj	2014-02-22 13:28:45.000000000 -0800
+--- /Users/ronald/git/cmpt473-a2/src/mutants/rmb6/solve.rmb6.25.clj	2014-02-22 15:05:23.000000000 -0800
+***************
+*** 101,107 ****
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+!            (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
+
+  (defn- try-factorise [x poly]
+    (let [first-not-null
+--- 101,107 ----
+          c (to-expression (to-sexp (coef poly 0)))]
+      (mapv simp-expr
+            [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+!            (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 b))))])))
+
+  (defn- try-factorise [x poly]
+    (let [first-not-null
+------------------------------------
+Test Results for Mutant 25:
+------------------------------------
+FAIL in (test-solve) (test_core.clj:146)
+expected: (= (quote #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))}) (solve (quote #{x}) (ex (= (+ (** x 2) (* a x) 1) 0))))
+  actual: (not (= #{(* 1/2 (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))} #{(* (/ (* 2 a)) (+ (- a) (- (sqrt (+ (** a 2) -4))))) (* 1/2 (+ (- a) (sqrt (+ (** a 2) -4))))}))
+--
+FAIL in (test-solve) (test_core.clj:149)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve (quote [x y]) (ex (= (+ (** x 2) (** y 2)) 1)) (ex (= (+ x y) a))))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))} {y (+ (* (/ (* -4 a)) (+ (* -2 a) (sqrt (+ (* -4.0 (** a 2)) 8)))) a), x (* (/ (* -4 a)) (+ (* 2 a) (- (sqrt (+ (* -4.0 (** a 2)) 8)))))}}))
+--
+ERROR in (test-solve) (Numbers.java:156)
+expected: (= (quote #{0 -1 1}) (solve (quote x) (ex (= (- (** x 4) (** x 2)) 0))))
+  actual: java.lang.ArithmeticException: Divide by zero
+--
+FAIL in (test-solve) (test_core.clj:157)
+expected: (= (quote #{1 3}) (solve (quote x) (ex (= (+ (** 2 (* 2 x)) (- (* 5 (** 2 (+ x 1)))) 16) 0))))
+  actual: (not (= #{1 3} #{3}))
+--
+FAIL in (test-solve-log) (test_solve.clj:114)
+expected: (= #{16.168643024342963 -10.168643024342964} (solve (quote x) (ex (= (log (- (** x 2) (* 6 x) 16)) 5))))
+  actual: (not (= #{16.168643024342963 -10.168643024342964} #{16.168643024342963 1.6947738373904941}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:84)
+expected: (= #{0.7588723439378913 -0.6588723439378913} (solve (quote x) (ex (= (/ (- (* 2 x) 1) (+ x 1)) (+ (/ (* 2 x) (- x 1)) (/ 5 x))))))
+  actual: (not (= #{0.7588723439378913 -0.6588723439378913} #{-0.6588723439378913}))
+--
+FAIL in (test-solve-fractions) (test_solve.clj:88)
+expected: (= #{-3.424428900898052 6.424428900898052} (solve (quote x) (ex (= (+ (/ (- (** x 2) 8) (- (** x 2) 4)) (/ 2 (+ x 2))) (/ 5 (- x 2))))))
+  actual: (not (= #{-3.424428900898052 6.424428900898052} #{6.424428900898052}))
+--
+ERROR in (test-solve-abs) (Numbers.java:156)
+expected: (= #{-3 1.7320508075688772} (solve (quote x) (ex (= (abs x) (+ (** x 2) x -3)))))
+  actual: java.lang.ArithmeticException: Divide by zero
+--
+FAIL in (test-solve-system) (test_solve.clj:46)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve-system (quote [x y]) #{(ex (= (+ x y) a)) (ex (= (+ (** x 2) (** y 2)) 1))}))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{{y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))} {y (+ (* (/ (* -4 a)) (+ (* -2 a) (sqrt (+ (* -4.0 (** a 2)) 8)))) a), x (* (/ (* -4 a)) (+ (* 2 a) (- (sqrt (+ (* -4.0 (** a 2)) 8)))))}}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:57)
+expected: (= #{1 -4.2444444444444445} (solve (quote x) (ex (= (+ (sqrt (+ x 8)) (sqrt (+ x 15))) (sqrt (+ (* 9 x) 40))))))
+  actual: (not (= #{1 -4.2444444444444445} #{0.3082191780821918 -4.2444444444444445}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:60)
+expected: (= #{1 -0.017994858611825194} (solve (quote x) (ex (= (+ (sqrt (+ (* 5 x) 4)) (sqrt (+ (* 7 x) 2))) (sqrt (+ (* 35 x) 1))))))
+  actual: (not (= #{1 -0.017994858611825194} #{-0.017994858611825194 -1.0183246073298429}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:65)
+expected: (= #{5 0.39167589808513964} (solve (quote x) (ex (= (- (* 7 (sqrt (- (* 2 x) 1))) (* 8 (sqrt (- x 1)))) (* 10 (sqrt (/ (- x 4) 4)))))))
+  actual: (not (= #{5 0.39167589808513964} #{5 -0.07264455532726734}))
+--
+FAIL in (test-solve-square-roots) (test_solve.clj:70)
+expected: (= #{8.165253628132167 4.890301927423389} (solve (quote x) (ex (= (- (sqrt (- (* 9 x) 14)) (sqrt (+ (* 3 x) 6))) (sqrt (/ (- (* 6 x) 25) 5))))))
+  actual: (not (= #{8.165253628132167 4.890301927423389} #{-0.6254236821548043 4.890301927423389}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:105)
+expected: (= #{5.889547542811505 0.11045245718849461} (solve (quote x) (ex (= (+ (** 100 (+ (** x 2) (* -6 x) 1)) 5) 10))))
+  actual: (not (= #{5.889547542811505 0.11045245718849461} #{5.889547542811505 -0.0184087428647491}))
+--
+FAIL in (test-solve-exp) (test_solve.clj:107)
+expected: (= #{0 0.6931471805599453} (solve (quote x) (ex (= (+ (exp (* 2 x)) (* -3 (exp x)) 2) 0))))
+  actual: (not (= #{0 0.6931471805599453} #{0.6931471805599453}))
+--
+Ran 66 tests containing 212 assertions.
+13 failures, 2 errors.
+Tests failed.
+
+
+====================================
