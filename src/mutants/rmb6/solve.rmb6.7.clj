@@ -96,11 +96,11 @@
 (defn solve-quadratic
   "solves the quadratic poly with the abc formula"
   [v poly]
-  (let [a (to-expression (to-sexp (coef poly 1)))
+  (let [a (to-expression (to-sexp (coef poly 2)))
         b (to-expression (to-sexp (coef poly 1)))
         c (to-expression (to-sexp (coef poly 0)))]
     (mapv simp-expr
-          [(ce `= v (ex' (/ (+ (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))
+          [(ce `= v (ex' (/ (+ (- b) (- (** b 2) (* 4 a c))) (* 2 a))))
            (ce `= v (ex' (/ (- (- b) (sqrt (- (** b 2) (* 4 a c)))) (* 2 a))))])))
 
 (defn- try-factorise [x poly]
