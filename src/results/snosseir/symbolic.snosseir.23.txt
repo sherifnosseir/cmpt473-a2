@@ -1,0 +1,20 @@
+Ran 66 tests containing 212 assertions.
+4 failures, 1 errors.
+Tests failed.
+
+FAIL in (test-solve) (test_core.clj:169)
+expected: (= (quote #{{remaining2 (+ -15N (* 3/5 _0))}}) (solve (quote [remaining2]) (ex (= original b)) (ex (= remaining1 (- original (/ original 4)))) (ex (= remaining2 (- remaining1 (+ (/ remaining1 5) 15))))))
+  actual: (not (= #{{remaining2 (+ -15N (* 3/5 _0))}} #{{remaining2 _2}}))
+--
+FAIL in (test-solve-system) (test_solve.clj:39)
+expected: (= #{{(quote x) 2}} (solve-system (quote [x]) #{(ex (= y 1)) (ex (= (+ x y) 3))}))
+  actual: (not (= #{{x 2}} #{{x _0}}))
+--
+FAIL in (test-solve-linear-system) (test_solve.clj:22)
+expected: (= (quote #{{x 180/7, y 40/7}}) (solve-linear-system (quote [x y]) [(ex (= (+ (* 3 x) (* 4 y)) 100)) (ex (= (- x y) 20))]))
+  actual: (not (= #{{x 180/7, y 40/7}} #{{y 10, x 20}}))
+--
+FAIL in (test-gaus-solve) (test_symbolic.clj:24)
+expected: (= (quote [(/ (- 0 (+ (+ (+ (+ 0 (* 1 _0)) (* 2 _1)) (* 3 _2)) (* 4 (/ (- 25 (+ (+ (+ 0 (* 20 _0)) (* 15 _1)) (* 10 _2))) 5)))) 5) (/ (- 25 (+ (+ (+ 0 (* 20 _0)) (* 15 _1)) (* 10 _2))) 5) _2 _1 _0]) (gaus-solve test2))
+  actual: (not (= [(/ (- 0 (+ (+ (+ (+ 0 (* 1 _0)) (* 2 _1)) (* 3 _2)) (* 4 (/ (- 25 (+ (+ (+ 0 (* 20 _0)) (* 15 _1)) (* 10 _2))) 5)))) 5) (/ (- 25 (+ (+ (+ 0 (* 20 _0)) (* 15 _1)) (* 10 _2))) 5) _2 _1 _0] [_3 (/ (- 5 (+ (+ (+ 0 (* 4 _0)) (* 3 _1)) (* 2 _2))) 1) _2 _1 _0]))
+--

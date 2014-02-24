@@ -1,0 +1,18 @@
+Ran 66 tests containing 212 assertions.
+0 failures, 4 errors
+
+ERROR in (test-solve-linear-system) (PersistentVector.java:107)
+expected: (= (quote #{{z _1, y _0, x 3}}) (solve-linear-system (quote [x y z]) [(ex (= x 3)) (ex (= y y)) (ex (= z z))]))
+  actual: java.lang.IndexOutOfBoundsException: null
+
+ERROR in (test-solve-linear-system) (PersistentVector.java:107)
+expected: (= (quote #{{y _0, x _0}}) (solve-linear-system (quote [x y]) [(ex (= x y))]))
+  actual: java.lang.IndexOutOfBoundsException: null
+
+ERROR in (test-solve) (PersistentVector.java:107)
+expected: (= (quote #{{remaining2 (+ -15N (* 3/5 _0))}}) (solve (quote [remaining2]) (ex (= original b)) (ex (= remaining1 (- original (/ original 4)))) (ex (= remaining2 (- remaining1 (+ (/ remaining1 5) 15))))))
+  actual: java.lang.IndexOutOfBoundsException: null
+
+ERROR in (test-gaus-solve) (PersistentVector.java:107)
+expected: (= (quote [(/ (- 0 (+ (+ (+ (+ 0 (* 1 _0)) (* 2 _1)) (* 3 _2)) (* 4 (/ (- 25 (+ (+ (+ 0 (* 20 _0)) (* 15 _1)) (* 10 _2))) 5)))) 5) (/ (- 25 (+ (+ (+ 0 (* 20 _0)) (* 15 _1)) (* 10 _2))) 5) _2 _1 _0]) (gaus-solve test2))
+  actual: java.lang.IndexOutOfBoundsException: null

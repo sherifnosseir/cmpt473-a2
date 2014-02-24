@@ -1,0 +1,30 @@
+Ran 66 tests containing 212 assertions.
+7 failures, 0 errors.
+
+FAIL in (test-solve-system) (test_solve.clj:39)
+expected: (= #{{(quote x) 2}} (solve-system (quote [x]) #{(ex (= y 1)) (ex (= (+ x y) 3))}))
+  actual: (not (= #{{x 2}} #{{x 3}}))
+
+FAIL in (test-solve-system) (test_solve.clj:41)
+expected: (= #{{(quote x) 1}} (solve-system (quote [x]) #{(ex (= (+ x 1) y)) (ex (= (+ x y) 3))}))
+  actual: (not (= #{{x 1}} #{{x 3}}))
+
+FAIL in (test-solve-linear-system) (test_solve.clj:12)
+expected: (= (quote #{{x 3}}) (solve-linear-system (quote [x]) [(ex (= x y)) (ex (= y 3))]))
+  actual: (not (= #{{x 3}} #{{x _0}}))
+
+FAIL in (test-solve-linear-system) (test_solve.clj:22)
+expected: (= (quote #{{x 180/7, y 40/7}}) (solve-linear-system (quote [x y]) [(ex (= (+ (* 3 x) (* 4 y)) 100)) (ex (= (- x y) 20))]))
+  actual: (not (= #{{x 180/7, y 40/7}} #{{y 10, x 20}}))
+
+FAIL in (test-gaus-solve) (test_symbolic.clj:22)
+expected: (mat/e== [1/2 -1 3/4 2] (gaus-solve testmatrix))
+  actual: (not (mat/e== [1/2 -1 3/4 2] [73/6 -19/2 -1/4 -1]))
+
+FAIL in (test-gaus-solve) (test_symbolic.clj:24)
+expected: (= (quote [(/ (- 0 (+ (+ (+ (+ 0 (* 1 _0)) (* 2 _1)) (* 3 _2)) (* 4 (/ (- 25 (+ (+ (+ 0 (* 20 _0)) (* 15 _1)) (* 10 _2))) 5)))) 5) (/ (- 25 (+ (+ (+ 0 (* 20 _0)) (* 15 _1)) (* 10 _2))) 5) _2 _1 _0]) (gaus-solve test2))
+  actual: (not (= [(/ (- 0 (+ (+ (+ (+ 0 (* 1 _0)) (* 2 _1)) (* 3 _2)) (* 4 (/ (- 25 (+ (+ (+ 0 (* 20 _0)) (* 15 _1)) (* 10 _2))) 5)))) 5) (/ (- 25 (+ (+ (+ 0 (* 20 _0)) (* 15 _1)) (* 10 _2))) 5) _2 _1 _0] [(/ (- 0 (+ (+ (+ (+ 0 (* 1 _0)) (* 2 (/ (- 5 (+ 0 (* 4 _0))) 3))) (* 3 (/ (- 5 (+ (+ 0 (* 4 _0)) (* 3 (/ (- 5 (+ 0 (* 4 _0))) 3)))) 2))) (* 4 (/ (- 5 (+ (+ (+ 0 (* 4 _0)) (* 3 (/ (- 5 (+ 0 (* 4 _0))) 3))) (* 2 (/ (- 5 (+ (+ 0 (* 4 _0)) (* 3 (/ (- 5 (+ 0 (* 4 _0))) 3)))) 2)))) 1)))) 5) (/ (- 5 (+ (+ (+ 0 (* 4 _0)) (* 3 (/ (- 5 (+ 0 (* 4 _0))) 3))) (* 2 (/ (- 5 (+ (+ 0 (* 4 _0)) (* 3 (/ (- 5 (+ 0 (* 4 _0))) 3)))) 2)))) 1) (/ (- 5 (+ (+ 0 (* 4 _0)) (* 3 (/ (- 5 (+ 0 (* 4 _0))) 3)))) 2) (/ (- 5 (+ 0 (* 4 _0))) 3) _0]))
+
+FAIL in (test-gaus-solve) (test_symbolic.clj:26)
+expected: (mat/e== [2 3 -1] (gaus-solve test4))
+  actual: (not (mat/e== [2 3 -1] [-3/4 8N -3/2]))
