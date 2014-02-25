@@ -1,0 +1,7 @@
+FAIL in (test-solve) (test_core.clj:155)
+expected: (= (quote #{0 -1 1}) (solve (quote x) (ex (= (- (** x 4) (** x 2)) 0))))
+  actual: (not (= #{0 -1 1} #{0}))
+
+FAIL in (test-solve-fractions) (test_solve.clj:93)
+expected: (= #{5} (solve (quote x) (ex (= (+ (/ 34 (+ (** x 2) (* -3 x) 7)) 5) (- (* 2 x) 3)))))
+  actual: (not (= #{5} #{}))

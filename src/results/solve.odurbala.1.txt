@@ -1,0 +1,67 @@
+ERROR in (test-solve) (RT.java:857)
+expected: (= #{2} (solve (quote x) (ex (= (+ 1 x) 3))))
+  actual: java.lang.UnsupportedOperationException: nth not supported on this type: Boolean
+ at clojure.lang.RT.nthFrom (RT.java:857)
+    clojure.lang.RT.nth (RT.java:807)
+
+ERROR in (test-solve) (RT.java:857)
+expected: (= (quote #{0 1}) (solve (quote #{x}) (ex (= (* (sin x) (- x 1)) 0))))
+  actual: java.lang.UnsupportedOperationException: nth not supported on this type: Boolean
+ at clojure.lang.RT.nthFrom (RT.java:857)
+    clojure.lang.RT.nth (RT.java:807)
+
+ERROR in (test-solve) (RT.java:857)
+expected: (= #{-4} (solve (quote #{x}) (ex (= (* 3 x) (+ (* 4 x) 4)))))
+  actual: java.lang.UnsupportedOperationException: nth not supported on this type: Boolean
+ at clojure.lang.RT.nthFrom (RT.java:857)
+    clojure.lang.RT.nth (RT.java:807)
+
+FAIL in (test-solve) (test_core.clj:159)
+expected: (= #{10N} (solve (quote x) (ex (= (+ (* (/ 3 4) x) (/ 5 6)) (- (* 5 x) (/ 125 3))))))
+  actual: (not (= #{10N} #{}))
+
+FAIL in (test-solve) (test_core.clj:161)
+expected: (= #{3N} (solve (quote x) (ex (= (+ (/ (- (* 6 x) 7) 4) (/ (- (* 3 x) 5) 7)) (/ (+ (* 5 x) 78) 28)))))
+  actual: (not (= #{3N} #{}))
+
+ERROR in (test-solve-fractions) (RT.java:857)
+expected: (= #{5} (solve (quote x) (ex (= (+ (/ (- x 3)) (/ (+ x 3))) (/ 10 (- (** x 2) 9))))))
+  actual: java.lang.UnsupportedOperationException: nth not supported on this type: Boolean
+ at clojure.lang.RT.nthFrom (RT.java:857)
+    clojure.lang.RT.nth (RT.java:807)
+
+ERROR in (test-solve-fractions) (RT.java:857)
+expected: (= #{} (solve (quote x) (ex (= (/ 1 (- x 2)) (- (/ 3 (+ x 2)) (/ (* 6 x) (- (** x 2) 4)))))))
+  actual: java.lang.UnsupportedOperationException: nth not supported on this type: Boolean
+ at clojure.lang.RT.nthFrom (RT.java:857)
+    clojure.lang.RT.nth (RT.java:807)
+
+ERROR in (test-solve-fractions) (RT.java:857)
+expected: (= #{5} (solve (quote x) (ex (= (+ (/ 34 (+ (** x 2) (* -3 x) 7)) 5) (- (* 2 x) 3)))))
+  actual: java.lang.UnsupportedOperationException: nth not supported on this type: Boolean
+ at clojure.lang.RT.nthFrom (RT.java:857)
+    clojure.lang.RT.nth (RT.java:807)
+
+ERROR in (test-solve-abs) (RT.java:857)
+expected: (= #{-2 -1/3} (solve (quote x) (ex (= (abs (- (* 2 x) 1)) (abs (+ (* 4 x) 3))))))
+  actual: java.lang.UnsupportedOperationException: nth not supported on this type: Boolean
+ at clojure.lang.RT.nthFrom (RT.java:857)
+    clojure.lang.RT.nth (RT.java:807)
+
+FAIL in (test-solve-system) (test_solve.clj:43)
+expected: (= (quote #{{y (+ 7 (* -8 (/ (+ b a)) a)), x (* 8 (/ (+ b a)))}}) (solve-system (quote [x y]) #{(ex (= (- (* b x) y) 1)) (ex (= (+ (* a x) y) 7))}))
+  actual: (not (= #{{y (+ 7 (* -8 (/ (+ b a)) a)), x (* 8 (/ (+ b a)))}} #{}))
+
+FAIL in (test-solve-system) (test_solve.clj:46)
+expected: (= (quote #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}}) (solve-system (quote [x y]) #{(ex (= (+ x y) a)) (ex (= (+ (** x 2) (** y 2)) 1))}))
+  actual: (not (= #{{y (+ (* a 1/2) (* -1/4 (- (sqrt (+ (* -4.0 (** a 2)) 8))))), x (+ (* 1/2 a) (* (- (sqrt (+ (* -4.0 (** a 2)) 8))) 1/4))} {y (+ (* a 1/2) (* -1/4 (sqrt (+ (* -4.0 (** a 2)) 8)))), x (+ (* 1/2 a) (* (sqrt (+ (* -4.0 (** a 2)) 8)) 1/4))}} #{}))
+
+ERROR in (test-solve-square-roots) (RT.java:857)
+expected: (= #{9} (solve (quote x) (ex (= (+ (sqrt x) (sqrt (- x 5))) 1))))
+  actual: java.lang.UnsupportedOperationException: nth not supported on this type: Boolean
+ at clojure.lang.RT.nthFrom (RT.java:857)
+    clojure.lang.RT.nth (RT.java:807)
+
+FAIL in (test-solve-square-roots) (test_solve.clj:55)
+expected: (= (quote #{(+ (* 0.25 (+ (** a 2) 1)) (* 0.5 a))}) (solve (quote x) (ex (= (+ (sqrt x) (sqrt (- x a))) 1))))
+  actual: (not (= #{(+ (* 0.25 (+ (** a 2) 1)) (* 0.5 a))} #{}))

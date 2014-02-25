@@ -1,0 +1,12 @@
+ERROR in (test-solve) (AFn.java:437)
+expected: (= (quote #{0 -1 1}) (solve (quote x) (ex (= (- (** x 4) (** x 2)) 0))))
+  actual: clojure.lang.ArityException: Wrong number of args (2) passed to: core$not
+ at clojure.lang.AFn.throwArity (AFn.java:437)
+    clojure.lang.AFn.invoke (AFn.java:43)
+
+
+ERROR in (test-solve-fractions) (RT.java:857)
+expected: (= #{5} (solve (quote x) (ex (= (+ (/ 34 (+ (** x 2) (* -3 x) 7)) 5) (- (* 2 x) 3)))))
+  actual: java.lang.UnsupportedOperationException: nth not supported on this type: Boolean
+ at clojure.lang.RT.nthFrom (RT.java:857)
+    clojure.lang.RT.nth (RT.java:807)

@@ -1,0 +1,8 @@
+FAIL in (test-solve) (test_core.clj:155)
+expected: (= (quote #{0 -1 1}) (solve (quote x) (ex (= (- (** x 4) (** x 2)) 0))))
+  actual: (not (= #{0 -1 1} #{}))
+
+ERROR in (test-solve-fractions) (RT.java:857)
+expected: (= #{5} (solve (quote x) (ex (= (+ (/ 34 (+ (** x 2) (* -3 x) 7)) 5) (- (* 2 x) 3)))))
+  actual: java.lang.UnsupportedOperationException: nth not supported on this type: Boolean
+ at clojure.lang.RT.nthFrom (RT.java:857)
