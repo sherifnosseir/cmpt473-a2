@@ -1,0 +1,11 @@
+ERROR in (test-optimize) (core_deftype.clj:541)
+expected: (= (ex (inner-product (inner-product a (inner-product b c)) d)) (optimize (ex (inner-product a b c d))))
+  actual: java.lang.IllegalArgumentException: No implementation of method: :substitute-expr of protocol: #'numeric.expresso.protocols/PSubstitute found for class: java.lang.Long
+--
+ERROR in (test-optimize) (core_deftype.clj:541)
+expected: (= (ex (inner-product (inner-product (inner-product a b) c) d)) (optimize (ex (inner-product a b c d))))
+  actual: java.lang.IllegalArgumentException: No implementation of method: :substitute-expr of protocol: #'numeric.expresso.protocols/PSubstitute found for class: java.lang.Long
+--
+Ran 66 tests containing 212 assertions.
+0 failures, 2 errors.
+Tests failed.

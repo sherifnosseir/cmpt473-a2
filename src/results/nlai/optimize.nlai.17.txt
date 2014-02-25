@@ -1,0 +1,11 @@
+ERROR in (test-optimize) (Numbers.java:156)
+expected: (= (ex (inner-product (inner-product a (inner-product b c)) d)) (optimize (ex (inner-product a b c d))))
+  actual: java.lang.ArithmeticException: Divide by zero
+--
+ERROR in (test-optimize) (Numbers.java:156)
+expected: (= (ex (inner-product (inner-product (inner-product a b) c) d)) (optimize (ex (inner-product a b c d))))
+  actual: java.lang.ArithmeticException: Divide by zero
+--
+Ran 66 tests containing 212 assertions.
+0 failures, 2 errors.
+Tests failed.
