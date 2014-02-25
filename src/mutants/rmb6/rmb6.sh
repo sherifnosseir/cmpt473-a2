@@ -45,7 +45,7 @@ for i in {1..25}; do
 	echo -e "------------------------------------"
 	echo -e "Test Results for Mutant $i:"
 	echo -e "------------------------------------"
-	lein test |grep -A 2 -e "Ran " -e "FAIL in" -e "ERROR in"
+	lein test |grep -A 2 -e "Ran " -e "FAIL in" -e "ERROR in" > $PROJECT_PATH/src/results/rmb6/solve.rmb6.$i.txt
 	echo -e "\n"
 	echo -e "===================================="
 done
