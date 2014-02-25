@@ -1,0 +1,11 @@
+FAIL in (test-optimize) (test_optimize.clj:36)
+expected: (= (ex (inner-product (inner-product a (inner-product b c)) d)) (optimize (ex (inner-product a b c d))))
+  actual: (not (= (inner-product (inner-product a (inner-product b c)) d) (inner-product c d)))
+--
+FAIL in (test-optimize) (test_optimize.clj:41)
+expected: (= (ex (inner-product (inner-product (inner-product a b) c) d)) (optimize (ex (inner-product a b c d))))
+  actual: (not (= (inner-product (inner-product (inner-product a b) c) d) (inner-product c d)))
+--
+Ran 66 tests containing 212 assertions.
+2 failures, 0 errors.
+Tests failed.
